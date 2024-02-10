@@ -1,0 +1,13 @@
+.carousel-item {
+	max-width: 250px;
+	height: 150px;
+	background-color: #27282d;
+	cursor: pointer;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.carousel-item img {
+	width: 100%;
+	height: 100%;
+}

@@ -1,0 +1,4 @@
+.main {
+	border-left: 1px solid var(--border-color);
+	padding-right: 10px;
+}

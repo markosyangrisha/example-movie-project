@@ -1,0 +1,25 @@
+.carousel-movies {
+	margin-bottom: 50px;
+	border-radius: 0.8em;
+}
+
+.carousel-movies__title {
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: 0.1s;
+	display: inline-block;
+}
+
+.carousel-movies__title:hover {
+	color: var(--primary-color);
+}
+
+.carousel-movies .slick-list {
+	border-radius: 10px;
+}
+
+.carousel-movies .slick-track {
+	border-radius: 10px;
+	display: flex;
+	gap: 20px;
+}

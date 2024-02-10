@@ -1,0 +1,33 @@
+.main-search {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 20px;
+}
+
+.main-search__input {
+	width: 100%;
+	position: relative;
+}
+
+#search-input {
+	border-radius: 3em;
+	padding: 10px;
+	background-color: #191a1e;
+	width: 100%;
+	border: 1px solid var(--primary-color);
+	caret-color: white;
+}
+
+#search-input::placeholder {
+	background-color: #191a1e;
+	color: var(--primary-color);
+}
+
+.search-icon {
+	position: absolute;
+	top: 50%;
+	right: 5px;
+	transform: translate(-50%, -50%);
+}
