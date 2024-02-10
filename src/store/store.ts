@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { movieReducer } from './fetchMovies'
-import { fetchMoviesApi } from './fetchMovies/serverAPI'
+import { searchMoviesApi } from './slices/searchSlice/searchServerAPI';
+import { fetchGenresApi } from './fetchGenres/genresServerAPI'
+import { fetchMoviesApi } from './fetchMovies/moviesServerAPI'
 
 const rootRouters = combineReducers({
-	movie: movieReducer,
 	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,
+	[fetchGenresApi.reducerPath]: fetchGenresApi.reducer,
+	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer
 })
 
 export const setupStore = () => {
@@ -12,7 +14,11 @@ export const setupStore = () => {
 		reducer: rootRouters,
 
 		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware().concat(fetchMoviesApi.middleware),
+			getDefaultMiddleware().concat(
+				fetchMoviesApi.middleware,
+				fetchGenresApi.middleware,
+				searchMoviesApi.middleware
+			),
 	})
 }
 

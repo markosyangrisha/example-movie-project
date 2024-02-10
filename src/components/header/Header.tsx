@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import BurgerMenu from '../burgerMenu/BurgerMenu'
 import Logo from '../logo/Logo'
 import NavBar from './navBar/NavBar'
 
 import './Header.css'
+import BurgerMenu from '../burgerMenu/BurgerMenu'
 
 const Header: FC = () => {
 	return (

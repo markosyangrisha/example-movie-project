@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Authorization, BASE_URL } from '../../server/server'
-import { IPopularMoviesServer } from './types'
+import { IGenresServerResponse } from '../../server/genresTypes'
 
-export const fetchMoviesApi = createApi({
-	reducerPath: 'popularMovieApi',
+export const fetchGenresApi = createApi({
+	reducerPath: 'fetchGenresApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: BASE_URL,
 	}),
 	endpoints: build => ({
-		fetchMovies: build.query<IPopularMoviesServer, string>({
+		fetchGenres: build.query<IGenresServerResponse, string>({
 			query: url => ({
 				url: url,
 				method: 'GET',
@@ -21,4 +21,4 @@ export const fetchMoviesApi = createApi({
 	}),
 })
 
-export const { useFetchMoviesQuery } = fetchMoviesApi
+export const { useFetchGenresQuery } = fetchGenresApi

@@ -1,11 +1,11 @@
 import { FC } from 'react'
 import Slider from 'react-slick'
-import { IPopularMoviesData } from '../../store/fetchMovies/types'
+import { IMoviesData } from '../../server/moviesTypes'
 import CarouseItem from '../carouselItem/CarouseItem'
 import './Carousel.css'
 
 interface ICarouselProps {
-	items?: IPopularMoviesData[]
+	items?: IMoviesData[]
 	categoryTitle: string
 }
 
@@ -13,7 +13,7 @@ const settings = {
 	infinite: true,
 	speed: 500,
 	slidesToScroll: 4,
-	slidesToShow: 5,
+	slidesToShow: 3,
 	responsive: [
 		{
 			breakpoint: 1024,

@@ -6,7 +6,7 @@ import './Logo.css'
 const Logo: FC = () => {
 	return (
 		<Link to='/' className='logo'>
-			<Icons.FilmIcon />
+			<Icons.Film />
 			Movie
 		</Link>
 	)

@@ -1,4 +1,4 @@
-export interface IPopularMoviesData {
+export interface IMoviesData {
 	adult: boolean
 	backdrop_path: string
 	genre_ids: number[]
@@ -15,9 +15,9 @@ export interface IPopularMoviesData {
 	vote_count: number
 }
 
-export interface IPopularMoviesServer {
+export interface IMoviesServerResponse {
 	page: number
-	results: IPopularMoviesData[]
+	results: IMoviesData[]
 	total_pages: number
 	total_results: number
 }

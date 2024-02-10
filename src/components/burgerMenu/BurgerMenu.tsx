@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
-import {Icons} from '../../widgets/icons'
+import { Icons } from '../../widgets/icons'
 import { NavLink } from 'react-router-dom'
 import UserEntry from '../userEntry/UserEntry'
 import './BurgerMenu.css'
 
 const BurgerMenu: FC = () => {
-	const [burger, setBurger] = useState<boolean>(false)
+	const [burger, setBurger] = useState<boolean>(true)
 
 	return (
 		<>
@@ -24,7 +24,7 @@ const BurgerMenu: FC = () => {
 									Home
 								</NavLink>
 								<NavLink to='category'>
-									<Icons.Category />
+									<Icons.Burger />
 									Category
 								</NavLink>
 								<NavLink to='/favorites'>

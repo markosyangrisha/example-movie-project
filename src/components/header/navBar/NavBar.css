@@ -46,11 +46,6 @@
 }
 
 @media (max-width: 1024px) {
-	/* .menu-list {
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-	} */
 	.menu-list h2 {
 		display: none;
 	}
@@ -66,7 +61,7 @@
 	}
 }
 
-@media (max-width: 724px) {
+@media (max-width: 998px) {
 	.menu-list {
 		display: none;
 	}

@@ -9,27 +9,24 @@
 	font-size: 0.9em;
 	letter-spacing: 1px;
 	transition: 0.1s;
-}
-
-.user-entry a:first-child {
-	border-radius: 0.2em;
-	background-color: #000000;
-	color: white;
-	padding: 7px 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+	border-radius: 0.2em;
+}
+
+.user-entry a:first-child {
+	background-color: #000000;
+	color: white;
+	padding: 7px 20px;
 	border: 1px solid rgba(255, 255, 255, 0.395);
 }
 
 .user-entry a:last-child {
-	border-radius: 0.2em;
 	background-color: #e20813;
 	color: white;
 	padding: 10px 25px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .user-entry a:first-child:hover {
@@ -47,7 +44,7 @@
 	}
 }
 
-@media (max-width: 724px) {
+@media (max-width: 998px) {
 	.user-entry {
 		flex-direction: column;
 		gap: 20px;
