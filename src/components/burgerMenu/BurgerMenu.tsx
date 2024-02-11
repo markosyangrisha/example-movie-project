@@ -1,11 +1,13 @@
 import { FC, useState } from 'react'
 import { Icons } from '../../widgets/icons'
 import NavBar from '../header/navBar/NavBar'
-import './BurgerMenu.css'
 import Logo from '../logo/Logo'
+import './BurgerMenu.css'
+
+type BurgerState = boolean;
 
 const BurgerMenu: FC = () => {
-	const [burger, setBurger] = useState<boolean>(false)
+	const [burger, setBurger] = useState<BurgerState>(false)
 
 	return (
 		<>
@@ -17,7 +19,7 @@ const BurgerMenu: FC = () => {
 							onClick={() => setBurger(false)}
 						/>
 						<Logo />
-						<NavBar />
+						<NavBar setBurger={setBurger} />
 					</div>
 				) : (
 					<Icons.Burger

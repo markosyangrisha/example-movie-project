@@ -3,11 +3,15 @@ import { NavLink } from 'react-router-dom'
 import { Icons } from '../../../widgets/icons'
 import GenresDropdownList from '../../genresDropdownList/GenresDropdownList'
 import UserEntry from '../../userEntry/UserEntry'
-import MainSearch from '../../mainSearch/MainSearch'
+// import MainSearch from '../../mainSearch/MainSearch'
 
 import './NavBar.css'
 
-const NavBar: FC = () => {
+type TypesNavBarProps = {
+	setBurger: (burgerState: boolean) => void
+}
+
+const NavBar: FC<TypesNavBarProps> = ({ setBurger }) => {
 	return (
 		<>
 			<div className='nav-bar'>
@@ -24,7 +28,7 @@ const NavBar: FC = () => {
 							<Icons.arrowDown className='arrow-down__icon' />
 						</a>
 						{/* Dropdown List */}
-						<GenresDropdownList />
+						<GenresDropdownList setBurger={setBurger} />
 						{/* Dropdown List */}
 					</div>
 					<NavLink to='/favorites'>
@@ -35,7 +39,7 @@ const NavBar: FC = () => {
 				{/* <MainSearch /> */}
 				<UserEntry />
 			</div>
-		</>	
+		</>
 	)
 }
 

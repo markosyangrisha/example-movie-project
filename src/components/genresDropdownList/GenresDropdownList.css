@@ -37,16 +37,17 @@
 	padding: 10px;
 }
 
-.genres-list .genres-list__link {
+.genres-list .genres-list__item {
 	padding: 10px;
 	background-color: #0e7490;
 	border-radius: 1em;
 	color: white;
 	letter-spacing: 2px;
 	font-size: 0.7em;
+	cursor: pointer;
 }
 
-.genres-list .genres-list__link:hover {
+.genres-list .genres-list__item:hover {
 	background-color: #0f0275;
 	color: white;
 }
