@@ -18,11 +18,11 @@ body {
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	min-height: 100%;
+	min-height: 100vh;
 }
 
 .container {
-	max-width: 95vw;
+	max-width: 1450px;
 	margin: 0 auto;
 	padding: 15px;
 }
@@ -58,10 +58,4 @@ button {
 input {
 	border: none;
 	outline: none;
-}
-
-@media (max-width: 1024px) {
-	.wrapper {
-		flex-direction: column;
-	}
 }

@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
 import { Icons } from '../../widgets/icons'
-import { NavLink } from 'react-router-dom'
-import UserEntry from '../userEntry/UserEntry'
+import NavBar from '../header/navBar/NavBar'
 import './BurgerMenu.css'
+import Logo from '../logo/Logo'
 
 const BurgerMenu: FC = () => {
-	const [burger, setBurger] = useState<boolean>(true)
+	const [burger, setBurger] = useState<boolean>(false)
 
 	return (
 		<>
@@ -16,24 +16,8 @@ const BurgerMenu: FC = () => {
 							className='burger-close__icon'
 							onClick={() => setBurger(false)}
 						/>
-						<div className='burger-nav_bar'>
-							<div className='burger-menu__list'>
-								<h2>Menu</h2>
-								<NavLink to='/'>
-									<Icons.Home />
-									Home
-								</NavLink>
-								<NavLink to='category'>
-									<Icons.Burger />
-									Category
-								</NavLink>
-								<NavLink to='/favorites'>
-									<Icons.Favorite />
-									Favorites
-								</NavLink>
-								<UserEntry />
-							</div>
-						</div>
+						<Logo />
+						<NavBar />
 					</div>
 				) : (
 					<Icons.Burger

@@ -7,12 +7,15 @@ import './GenresDropdownList.css'
 const GenresDropdownList: FC = () => {
 	const { data } = useFetchGenresQuery(URL_GENRES)
 
+
 	return (
 		<div className='dropdown'>
 			<ul className='genres-list'>
 				{data?.genres?.map(genre => (
-					<li key={genre.id}>
-						<Link to={`/${genre.name}`}>{genre.name}</Link>
+					<li className='genres-list__item' key={genre.id}>
+						<Link className='genres-list__link' to={`/${genre.name}`}>
+							{genre.name}
+						</Link>
 					</li>
 				))}
 			</ul>

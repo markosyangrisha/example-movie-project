@@ -6,8 +6,8 @@ import './UserEntry.css'
 const UserEntry: FC = () => {
 	return (
 		<div className='user-entry'>
-			<NavLink to='sign-in'>Sign In</NavLink>
-			<NavLink to='sign-Up'>Sign Up</NavLink>
+			<NavLink id='sign-in' to='sign-in'>Sign In</NavLink>
+			<NavLink id='sign-up' to='sign-Up'>Sign Up</NavLink>
 		</div>
 	)
 }

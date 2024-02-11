@@ -6,7 +6,7 @@ import './Footer.css'
 const Footer: FC = () => {
 	return (
 		<footer>
-			<div className='footer'>
+			<div className='footer container'>
 				<div className='row'>
 					<a href='#'>
 						<Icons.GitHub />
