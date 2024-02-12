@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BASE_IMAGE_URL } from '../../server/server'
-import './CarouselItem.css'
 import { Icons } from '../../widgets/icons'
+import './CarouselItem.css'
 
 interface ICarouselProps {
 	title: string

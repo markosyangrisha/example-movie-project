@@ -1,6 +1,6 @@
 .big-carousel {
 	margin-bottom: 100px;
-	width: 100%;
+	overflow: hidden;
 }
 
 .big-carousel__item {

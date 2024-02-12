@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { searchMoviesApi } from './slices/searchSlice/searchServerAPI';
-import { fetchGenresApi } from './fetchGenres/genresServerAPI'
-import { fetchMoviesApi } from './fetchMovies/moviesServerAPI'
+import { fetchExactlyGenresApi } from './slices/fetchExactlyGenres/fetchExactlyGenres'
+import { fetchGenresApi } from './slices/fetchGenres/genresServerAPI'
+import { fetchMoviesApi } from './slices/fetchMovies/moviesServerAPI'
+import { searchMoviesApi } from './slices/searchSlice/searchServerAPI'
 
 const rootRouters = combineReducers({
 	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,
 	[fetchGenresApi.reducerPath]: fetchGenresApi.reducer,
-	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer
+	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer,
+	[fetchExactlyGenresApi.reducerPath]: fetchExactlyGenresApi.reducer,
 })
 
 export const setupStore = () => {
@@ -17,7 +19,8 @@ export const setupStore = () => {
 			getDefaultMiddleware().concat(
 				fetchMoviesApi.middleware,
 				fetchGenresApi.middleware,
-				searchMoviesApi.middleware
+				searchMoviesApi.middleware,
+				fetchExactlyGenresApi.middleware
 			),
 	})
 }

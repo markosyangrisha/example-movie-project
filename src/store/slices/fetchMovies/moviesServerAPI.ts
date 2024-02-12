@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IMoviesServerResponse } from '../../server/moviesTypes'
-import { Authorization, BASE_URL } from '../../server/server'
+import { IMoviesServerResponse } from '../../../server/moviesTypes'
+import { Authorization, BASE_URL } from '../../../server/server'
 
 export const fetchMoviesApi = createApi({
 	reducerPath: 'fetchMoviesApi',
