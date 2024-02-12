@@ -1,26 +1,12 @@
 import { FC } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { URL_GENRES } from '../../server/params'
-import { toggleList } from '../../store/slices/genresList/genresList'
 import { useFetchGenresQuery } from '../../store/slices/fetchGenres/genresServerAPI'
-import { useAppDispatch } from '../../hooks/redux'
+import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import './GenresDropdownList.css'
 
 const GenresDropdownList: FC = () => {
 	const { data } = useFetchGenresQuery(URL_GENRES)
-	const navigate = useNavigate()
-	const dispatch = useAppDispatch()
-
-	const genre = data?.genres.reduce((aggr, el) => {
-		aggr[el.id] = el.name
-		return aggr
-	}, {})
-
-	const getGenreId = (id: number) => {
-		const changeToString = id.toString()
-		navigate(`/thisGenreMovies/${changeToString}`, { state: genre })
-		dispatch(toggleList(false))
-	}
+	const getGenreId = useExactlyGenres()
 
 	return (
 		<div className='dropdown'>
