@@ -1,4 +1,5 @@
 import NotFoundPage from '../../pages/notFoundPage/NotFoundPage'
+import SearchMoviesPage from '../../pages/searchMoviesPage/SearchMoviesPage';
 import ThisGenreMovies from '../../pages/thisGenreMovies/ThisGenreMovies'
 
 export const routePath = [
@@ -10,4 +11,9 @@ export const routePath = [
 		path: 'thisGenreMovies/:id',
 		component: ThisGenreMovies,
 	},
+	{
+		path: 'thisGenreMovies/:id',
+		component: SearchMoviesPage,
+	},
+
 ]

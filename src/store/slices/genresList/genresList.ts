@@ -13,7 +13,6 @@ export const genresListSlice = createSlice({
 	initialState,
 	reducers: {
 		toggleList: (state, { payload }: PayloadAction<boolean>) => {
-			console.log(payload)
 			state.isOpenGenresList = payload
 		},
 	},

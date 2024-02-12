@@ -3,17 +3,23 @@ import { IMoviesServerResponse } from '../../../server/moviesTypes'
 import { URL_DISCOVER } from '../../../server/params'
 import { Authorization, BASE_URL } from '../../../server/server'
 
+interface IQueryParams {
+	genre: string
+	page: number
+}
+
 export const fetchExactlyGenresApi = createApi({
 	reducerPath: 'fetchExactlyGenresApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: BASE_URL,
 	}),
 	endpoints: build => ({
-		fetchExactlyGenres: build.query<IMoviesServerResponse, string >({
-			query: (genre: string) => ({
+		fetchExactlyGenres: build.query<IMoviesServerResponse, IQueryParams>({
+			query: (params: IQueryParams) => ({
 				url: URL_DISCOVER,
 				params: {
-					with_genres: genre,
+					with_genres: params.genre,
+					page: params.page
 				},
 				headers: {
 					accept: 'application/json',

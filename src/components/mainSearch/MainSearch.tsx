@@ -1,41 +1,45 @@
-import { FC, useState } from 'react'
-import { useDebounce } from '../../hooks/debounce'
-import { useSearchMoviesQuery } from '../../store/slices/searchSlice/searchServerAPI'
+import { FC, FormEventHandler, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Icons } from '../../widgets/icons'
-import SearchDropdownList from '../searchDropdownList/SearchDropdownList'
 import './MainSearch.css'
+import { useSearchMoviesQuery } from '../../store/slices/searchSlice/searchServerAPI'
+
+interface IFormFields {
+	searchText: HTMLInputElement
+}
 
 const MainSearch: FC = () => {
 	const [searchText, setSearchText] = useState<string>('')
-	const [isOpenSearch, setOpenSearch] = useState<boolean>(false)
-	const debounced = useDebounce(searchText)
-	const { data } = useSearchMoviesQuery(debounced, {
-		skip: debounced?.length < 3,
+	const [toggleText, setToggleText] = useState<string>('')
+	const navigate = useNavigate()
+
+	const { data } = useSearchMoviesQuery(toggleText, {
+		skip: toggleText?.length < 3,
 	})
+
+	const handlerForm: FormEventHandler<
+		HTMLFormElement & IFormFields
+	> = event => {
+		event.preventDefault()
+		const { text } = event.currentTarget
+		setToggleText(text.value)
+		navigate()
+
+	}
 
 	return (
 		<div className='main-search'>
 			<div className='main-search__input'>
-				<Icons.Search
-					onClick={() => setOpenSearch(prev => !prev)}
-					className='search-icon'
-				/>
-				<div className={`${isOpenSearch ? 'open-search' : 'close-search'}`}>
+				<Icons.Search className='search-icon' />
+				<form onSubmit={handlerForm} className='search-form'>
 					<input
 						id='search-input'
-						className={`${isOpenSearch ? 'open-search' : 'close-search'}`}
 						type='text'
 						placeholder='search...'
+						name='text'
 						onChange={event => setSearchText(event.target.value)}
 					/>
-				</div>
-			</div>
-			<div className='search-dropdown'>
-				<ul className='search-dropdown__list'>
-					{data?.results?.map(movie => (
-						<SearchDropdownList key={movie.id} {...movie} />
-					))}
-				</ul>
+				</form>
 			</div>
 		</div>
 	)

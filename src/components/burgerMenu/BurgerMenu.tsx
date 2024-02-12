@@ -8,7 +8,6 @@ import './BurgerMenu.css'
 
 const BurgerMenu: FC = () => {
 	const { isOpenGenresList } = useAppSelector(state => state.genresList)
-
 	const dispatch = useAppDispatch()
 
 	return (
