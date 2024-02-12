@@ -45,6 +45,7 @@
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 20px;
+		margin-bottom: 20px;
 	}
 	.burger-menu_inner .logo {
 		margin-bottom: 20px;
@@ -54,8 +55,9 @@
 		display: flex;
 		flex-direction: column;
 	}
-	.burger-menu_inner .nav-bar .user-entry {
+	.burger-menu_inner .user-entry {
 		gap: 10px;
+		align-items: flex-start;
 	}
 	.burger-menu_inner .nav-bar .genres-dropdown {
 		position: static;
@@ -72,7 +74,7 @@
 	.burger-menu_inner .nav-bar .genres-dropdown:hover .dropdown {
 		min-height: 200px;
 	}
-	.burger-menu_inner .nav-bar .genres-list .genres-list__item  {
+	.burger-menu_inner .nav-bar .genres-list .genres-list__item {
 		padding: 0;
 		background: none;
 		color: black;

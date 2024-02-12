@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import BigCarousel from '../../components/bigCarousel/BigCarousel'
-import MainSearch from '../../components/mainSearch/MainSearch'
 import PopularMovies from '../../components/popularMovies/PopularMovies'
 import TopRated from '../../components/topRated/TopRated'
 import './HomePage.css'
+import UpcomingMovies from '../../components/upcomingMovies/UpcomingMovies'
 
 const HomePage: FC = () => {
 	return (
@@ -14,9 +14,9 @@ const HomePage: FC = () => {
 						Movies - scary, funny, dramatic, romantic - make us experience a
 						whole range of emotions. Many films - many impressions!
 					</p>
-					<MainSearch />
 				</div>
 				<BigCarousel />
+				<UpcomingMovies />
 				<PopularMovies />
 				<TopRated />
 			</div>

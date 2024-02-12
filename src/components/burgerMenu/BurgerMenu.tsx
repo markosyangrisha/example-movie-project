@@ -5,6 +5,7 @@ import { Icons } from '../../widgets/icons'
 import NavBar from '../header/navBar/NavBar'
 import Logo from '../logo/Logo'
 import './BurgerMenu.css'
+import UserEntry from '../userEntry/UserEntry'
 
 const BurgerMenu: FC = () => {
 	const { isOpenGenresList } = useAppSelector(state => state.genresList)
@@ -20,8 +21,8 @@ const BurgerMenu: FC = () => {
 							onClick={() => dispatch(toggleList(false))}
 						/>
 						<Logo />
-
 						<NavBar />
+						<UserEntry />
 					</div>
 				) : (
 					<Icons.Burger

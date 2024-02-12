@@ -14,14 +14,19 @@ export const useExactlyGenres = () => {
 	const dispatch = useAppDispatch()
 	const { data } = useFetchGenresQuery(URL_GENRES)
 
-	const genre = data?.genres?.reduce((aggr: Aggr, el: IGenresData) => {
+	const genres = data?.genres?.reduce((aggr: Aggr, el: IGenresData) => {
 		aggr[el.id] = el.name
 		return aggr
 	}, {})
 
-	return (id: number) => {
+	const addedGenresToMovies = (id: number) => {
 		const changeToString = id.toString()
-		navigate(`/thisGenreMovies/${changeToString}`, { state: genre })
+		navigate(`/thisGenreMovies/${changeToString}`, { state: genres })
 		dispatch(toggleList(false))
+	}
+
+	return {
+		genres,
+		addedGenresToMovies,
 	}
 }

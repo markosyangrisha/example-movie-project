@@ -4,9 +4,15 @@ import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServer
 import Carousel from '../carousel/Carousel'
 
 const TopRated: FC = () => {
-	const { data } = useFetchMoviesQuery(URL_TOP_RATED)
+	const { isError, isLoading, data } = useFetchMoviesQuery({url:URL_TOP_RATED})
 
-	return <Carousel items={data?.results} categoryTitle={'Top rated'} />
+	return (
+		<>
+			{isError && <p>Error</p>}
+			{isLoading && <p>Loading</p>}
+			<Carousel items={data?.results} categoryTitle={'Top rated'} />
+		</>
+	)
 }
 
 export default TopRated

@@ -1,30 +1,21 @@
-import { FC, FormEventHandler, useState } from 'react'
+import { FC, FormEventHandler } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Icons } from '../../widgets/icons'
 import './MainSearch.css'
-import { useSearchMoviesQuery } from '../../store/slices/searchSlice/searchServerAPI'
 
 interface IFormFields {
 	searchText: HTMLInputElement
 }
 
 const MainSearch: FC = () => {
-	const [searchText, setSearchText] = useState<string>('')
-	const [toggleText, setToggleText] = useState<string>('')
 	const navigate = useNavigate()
-
-	const { data } = useSearchMoviesQuery(toggleText, {
-		skip: toggleText?.length < 3,
-	})
 
 	const handlerForm: FormEventHandler<
 		HTMLFormElement & IFormFields
 	> = event => {
 		event.preventDefault()
 		const { text } = event.currentTarget
-		setToggleText(text.value)
-		navigate()
-
+		navigate('/searchMoviesPage', { state: text.value })
 	}
 
 	return (
@@ -37,7 +28,6 @@ const MainSearch: FC = () => {
 						type='text'
 						placeholder='search...'
 						name='text'
-						onChange={event => setSearchText(event.target.value)}
 					/>
 				</form>
 			</div>

@@ -12,8 +12,7 @@ export const routePath = [
 		component: ThisGenreMovies,
 	},
 	{
-		path: 'thisGenreMovies/:id',
+		path: 'searchMoviesPage',
 		component: SearchMoviesPage,
 	},
-
 ]

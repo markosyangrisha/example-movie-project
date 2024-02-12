@@ -12,7 +12,7 @@ const ThisGenreMovies: FC = () => {
 	const { id } = useParams<string>()
 	const [page, setPage] = useState<number>(1)
 
-	const { data } = useFetchExactlyGenresQuery({
+	const { data, isError, isLoading } = useFetchExactlyGenresQuery({
 		genre: id || '',
 		page,
 	})
@@ -25,6 +25,9 @@ const ThisGenreMovies: FC = () => {
 
 	return (
 		<div className='genre-movie__block'>
+			{isError && <p>Error</p>}
+			{isLoading && <p>Loading...</p>}
+
 			{data?.results.map(movie => (
 				<div key={movie.id} className='genre-movie__card'>
 					<img

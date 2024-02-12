@@ -4,15 +4,13 @@ import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServer
 import Carousel from '../carousel/Carousel'
 
 const PopularMovies: FC = () => {
-	const { data, isError, isLoading } = useFetchMoviesQuery(URL_POPULAR)
+	const { data, isError, isLoading } = useFetchMoviesQuery({ url: URL_POPULAR })
 
 	return (
 		<>
-			{isError || isLoading ? (
-				<p>No Found</p>
-			) : (
-				<Carousel items={data?.results} categoryTitle={'Popular movies'} />
-			)}
+			{isError && <p>Error</p>}
+			{isLoading && <p>Loading...</p>}
+			<Carousel items={data?.results} categoryTitle={'Popular movies'} />
 		</>
 	)
 }

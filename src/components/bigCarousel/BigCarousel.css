@@ -8,6 +8,8 @@
 	height: 400px;
 	border-radius: 1em;
 	overflow: hidden;
+	cursor: pointer;
+	position: relative;
 }
 
 .big-carousel__item img {
@@ -18,4 +20,30 @@
 .big-carousel .slick-track {
 	display: flex;
 	gap: 10px;
+}
+
+.big-carousel__item-info {
+	display: flex;
+	position: absolute;
+	width: 100%;
+	left: 10px;
+	bottom: 20px;
+	gap: 5px;
+	color: black;
+}
+
+.big-carousel__item-info-title {
+	margin-right: 30px;
+}
+.big-carousel__item-info-vote {
+	margin-right: 30px;
+}
+.big-carousel__item-info-language {
+	margin-right: 30px;
+	background-color: red;
+	align-self: flex-start;
+	border-radius: 2em;
+	padding: 5px;
+	font-size: 0.8em;
+	color: white;
 }

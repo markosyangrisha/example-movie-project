@@ -42,7 +42,7 @@ const settings = {
 	],
 }
 
-const MuCarousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
+const Carousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
 	return (
 		<div className='carousel-movies'>
 			<h3 className='carousel-movies__title'>{categoryTitle}</h3>
@@ -59,4 +59,4 @@ const MuCarousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
 	)
 }
 
-export default MuCarousel
+export default Carousel

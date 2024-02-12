@@ -33,3 +33,26 @@
 #sign-in:hover {
 	background-color: #181818;
 }
+
+@media (max-width: 1100px) {
+	#sign-in,
+	#sign-up {
+		font-size: 0.7em;
+		letter-spacing: 1px;
+		border-radius: 0.2em;
+	}
+
+	#sign-in {
+		padding: 4px 10px;
+	}
+
+	#sign-up {
+		padding: 5px 10px;
+	}
+}
+
+@media (max-width: 990px) {
+	.user-entry {
+		display: none;
+	}
+}

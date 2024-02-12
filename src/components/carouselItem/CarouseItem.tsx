@@ -16,7 +16,7 @@ const CarouseItem: FC<ICarouselProps> = ({
 }) => {
 	return (
 		<div className='carousel-item'>
-			<img src={`${BASE_IMAGE_URL}${backdrop_path}`} alt={title} />
+			<img className='carousel-item__img' src={`${BASE_IMAGE_URL}${backdrop_path}`} alt={title} />
 			<div className='carousel-movies__item-info'>
 				<span className='carousel-movies__item-info__title'>{title}</span>
 				<button>Watch Now</button>

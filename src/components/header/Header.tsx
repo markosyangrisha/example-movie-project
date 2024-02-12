@@ -3,6 +3,8 @@ import Logo from '../logo/Logo'
 import NavBar from './navBar/NavBar'
 import BurgerMenu from '../burgerMenu/BurgerMenu'
 import './Header.css'
+import UserEntry from '../userEntry/UserEntry'
+import MainSearch from '../mainSearch/MainSearch'
 
 const Header: FC = () => {
 	return (
@@ -11,7 +13,9 @@ const Header: FC = () => {
 				<div className='header-container container'>
 					<Logo />
 					<NavBar />
-					<BurgerMenu/>
+					<MainSearch />
+					<UserEntry />
+					<BurgerMenu />
 				</div>
 			</div>
 		</>

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { Icons } from '../../../widgets/icons'
 import GenresDropdownList from '../../genresDropdownList/GenresDropdownList'
 import UserEntry from '../../userEntry/UserEntry'
-// import MainSearch from '../../mainSearch/MainSearch'
+import MainSearch from '../../mainSearch/MainSearch'
 
 import './NavBar.css'
 
@@ -32,9 +32,9 @@ const NavBar: FC = () => {
 						Favorites
 					</NavLink>
 				</div>
-				{/* <MainSearch /> */}
-				<UserEntry />
 			</div>
+			{/* <MainSearch />
+			<UserEntry /> */}
 		</>
 	)
 }
