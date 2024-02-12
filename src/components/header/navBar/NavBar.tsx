@@ -7,11 +7,7 @@ import UserEntry from '../../userEntry/UserEntry'
 
 import './NavBar.css'
 
-type TypesNavBarProps = {
-	setBurger: (burgerState: boolean) => void
-}
-
-const NavBar: FC<TypesNavBarProps> = ({ setBurger }) => {
+const NavBar: FC = () => {
 	return (
 		<>
 			<div className='nav-bar'>
@@ -28,7 +24,7 @@ const NavBar: FC<TypesNavBarProps> = ({ setBurger }) => {
 							<Icons.arrowDown className='arrow-down__icon' />
 						</a>
 						{/* Dropdown List */}
-						<GenresDropdownList setBurger={setBurger} />
+						<GenresDropdownList />
 						{/* Dropdown List */}
 					</div>
 					<NavLink to='/favorites'>

@@ -1,16 +1,15 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { URL_GENRES } from '../../server/params'
+import { toggleList } from '../../store/slices/genresList/genresList'
 import { useFetchGenresQuery } from '../../store/slices/fetchGenres/genresServerAPI'
+import { useAppDispatch } from '../../hooks/redux'
 import './GenresDropdownList.css'
 
-type TypesGenresDropdownProps = {
-	setBurger: (BurgerState: boolean) => void
-}
-
-const GenresDropdownList: FC<TypesGenresDropdownProps> = ({ setBurger }) => {
+const GenresDropdownList: FC = () => {
 	const { data } = useFetchGenresQuery(URL_GENRES)
 	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
 
 	const genre = data?.genres.reduce((aggr, el) => {
 		aggr[el.id] = el.name
@@ -20,7 +19,7 @@ const GenresDropdownList: FC<TypesGenresDropdownProps> = ({ setBurger }) => {
 	const getGenreId = (id: number) => {
 		const changeToString = id.toString()
 		navigate(`/thisGenreMovies/${changeToString}`, { state: genre })
-		setBurger(false)
+		dispatch(toggleList(false))
 	}
 
 	return (
