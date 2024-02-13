@@ -2,8 +2,6 @@ import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Icons } from '../../../widgets/icons'
 import GenresDropdownList from '../../genresDropdownList/GenresDropdownList'
-import UserEntry from '../../userEntry/UserEntry'
-import MainSearch from '../../mainSearch/MainSearch'
 
 import './NavBar.css'
 
@@ -18,11 +16,11 @@ const NavBar: FC = () => {
 						Home
 					</NavLink>
 					<div className='genres-dropdown'>
-						<a href='#'>
+						<span>
 							<Icons.Genres />
 							Genres
 							<Icons.arrowDown className='arrow-down__icon' />
-						</a>
+						</span>
 						{/* Dropdown List */}
 						<GenresDropdownList />
 						{/* Dropdown List */}

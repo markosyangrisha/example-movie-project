@@ -58,6 +58,7 @@
 	.burger-menu_inner .user-entry {
 		gap: 10px;
 		align-items: flex-start;
+		display: flex;
 	}
 	.burger-menu_inner .nav-bar .genres-dropdown {
 		position: static;

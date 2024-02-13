@@ -3,6 +3,16 @@
 	z-index: 11;
 }
 
+.genres-dropdown span {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	transition: 0.1s;
+	font-size: 1em;
+	gap: 5px;
+	color: #0e7490;
+}
+
 .genres-dropdown:hover .arrow-down__icon {
 	transform: rotateX(180deg);
 }

@@ -1,20 +1,16 @@
 import { FC } from 'react'
-import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
 import { URL_UPCOMING } from '../../server/params'
+import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
 import Carousel from '../carousel/Carousel'
 
 import './UpcomingMovies.css'
 
-
 const UpcomingMovies: FC = () => {
-
 	const { data, isError, isLoading } = useFetchMoviesQuery({
 		url: URL_UPCOMING,
 		language: 'en',
 		region: 'ru',
 	})
-
-	console.log(data)
 
 	return (
 		<>
@@ -26,5 +22,3 @@ const UpcomingMovies: FC = () => {
 }
 
 export default UpcomingMovies
-
-

@@ -50,3 +50,9 @@
 		padding: 5px 10px;
 	}
 }
+
+@media (max-width: 998px) {
+	.user-entry {
+		display: none;
+	}
+}
