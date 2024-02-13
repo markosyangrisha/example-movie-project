@@ -40,7 +40,7 @@
 
 .menu-list .active {
 	color: #5684be;
-	border-bottom: 4px solid #5684be;
+	border-bottom: 2px solid #5684be;
 	display: flex;
 }
 

@@ -28,8 +28,8 @@ const NavBar: FC = () => {
 						{/* Dropdown List */}
 					</div>
 					<NavLink to='/favorites'>
-						<Icons.Favorite />
-						Favorites
+						<Icons.BookMark />
+						Bookmark
 					</NavLink>
 				</div>
 			</div>

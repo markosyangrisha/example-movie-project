@@ -19,7 +19,7 @@ export const useExactlyGenres = () => {
 		return aggr
 	}, {})
 
-	const addedGenresToMovies = (id: number) => {
+	const thatGenreMovies = (id: number) => {
 		const changeToString = id.toString()
 		navigate(`/thisGenreMovies/${changeToString}`, { state: genres })
 		dispatch(toggleList(false))
@@ -27,6 +27,6 @@ export const useExactlyGenres = () => {
 
 	return {
 		genres,
-		addedGenresToMovies,
+		thatGenreMovies,
 	}
 }

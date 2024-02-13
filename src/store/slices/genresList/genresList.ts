@@ -10,7 +10,7 @@ const initialState: GenresListState = {
 
 export const genresListSlice = createSlice({
 	name: 'genresList',
-	initialState,
+	initialState,	
 	reducers: {
 		toggleList: (state, { payload }: PayloadAction<boolean>) => {
 			state.isOpenGenresList = payload

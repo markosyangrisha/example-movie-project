@@ -1,10 +1,16 @@
-import { FC } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { FC, useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { routePath } from './routesPath'
 import Layout from '../../pages/layout/Layout'
 import HomePage from '../../pages/home/HomePage'
 
 const AppRoutes: FC = () => {
+	const location = useLocation()
+
+	useEffect(() => {
+		window.scrollTo({ top: 0 })
+	}, [location])
+
 	return (
 		<>
 			<Routes>

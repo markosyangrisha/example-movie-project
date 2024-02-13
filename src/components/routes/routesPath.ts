@@ -1,4 +1,4 @@
-import MovieDetails from '../../pages/movieDetails/MovieDetails';
+import MovieDetails from '../../pages/movieDetails/MovieDetails'
 import NotFoundPage from '../../pages/notFoundPage/NotFoundPage'
 import SearchMoviesPage from '../../pages/searchMoviesPage/SearchMoviesPage'
 import ThisGenreMovies from '../../pages/thisGenreMovies/ThisGenreMovies'
@@ -13,7 +13,7 @@ export const routePath = [
 		component: SearchMoviesPage,
 	},
 	{
-		path: 'movieDetails',
+		path: 'movieDetails/:id',
 		component: MovieDetails,
 	},
 	{

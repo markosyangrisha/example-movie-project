@@ -6,6 +6,7 @@ import { URL_NOW_PLAYING } from '../../server/params'
 import { BASE_IMAGE_URL } from '../../server/server'
 import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
 import './BigCarousel.css'
+import { useNavigate } from 'react-router-dom'
 
 const settings = {
 	infinite: true,
@@ -27,6 +28,7 @@ const BigCarousel: FC = () => {
 	const { data, isLoading, isError } = useFetchMoviesQuery({
 		url: URL_NOW_PLAYING,
 	})
+	const navigate = useNavigate()
 
 	const randomMovies = [...(data?.results ?? [])].sort(
 		() => Math.random() - 0.5
@@ -39,7 +41,11 @@ const BigCarousel: FC = () => {
 					<p>Loading...</p>
 				) : (
 					randomMovies.map(movie => (
-						<div key={movie.id} className='big-carousel__item'>
+						<div
+							onClick={() => navigate(`/movieDetails/${movie.id}`)}
+							key={movie.id}
+							className='big-carousel__item'
+						>
 							<img
 								src={`${BASE_IMAGE_URL}${movie.backdrop_path}`}
 								alt={movie.title}

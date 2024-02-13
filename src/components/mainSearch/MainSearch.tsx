@@ -16,6 +16,7 @@ const MainSearch: FC = () => {
 		event.preventDefault()
 		const { text } = event.currentTarget
 		navigate('/searchMoviesPage', { state: text.value })
+		text.value = ''
 	}
 
 	return (

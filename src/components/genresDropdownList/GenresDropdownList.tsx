@@ -6,14 +6,14 @@ import './GenresDropdownList.css'
 
 const GenresDropdownList: FC = () => {
 	const { data } = useFetchGenresQuery(URL_GENRES)
-	const { addedGenresToMovies } = useExactlyGenres()
+	const { thatGenreMovies } = useExactlyGenres()
 
 	return (
 		<div className='dropdown'>
 			<ul className='genres-list'>
 				{data?.genres?.map(genre => (
 					<li
-						onClick={() => addedGenresToMovies(genre.id)}
+						onClick={() => thatGenreMovies(genre.id)}
 						className='genres-list__item'
 						key={genre.id}
 					>

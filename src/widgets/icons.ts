@@ -1,5 +1,9 @@
 import { AiOutlineMenu as Burger } from 'react-icons/ai'
-import { FaGithub as GitHub, FaLinkedin as Linkedin } from 'react-icons/fa'
+import {
+	FaBookmark as BookMark,
+	FaGithub as GitHub,
+	FaLinkedin as Linkedin,
+} from 'react-icons/fa'
 import { IoHome as Home, IoSearchOutline as Search } from 'react-icons/io5'
 import {
 	MdClose as Close,
@@ -27,4 +31,5 @@ export const Icons = {
 	arrowDown,
 	GitHub,
 	Linkedin,
+	BookMark,
 }

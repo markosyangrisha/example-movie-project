@@ -5,7 +5,9 @@ import Carousel from '../carousel/Carousel'
 
 import './UpcomingMovies.css'
 
+
 const UpcomingMovies: FC = () => {
+
 	const { data, isError, isLoading } = useFetchMoviesQuery({
 		url: URL_UPCOMING,
 		language: 'en',
@@ -24,3 +26,5 @@ const UpcomingMovies: FC = () => {
 }
 
 export default UpcomingMovies
+
+
