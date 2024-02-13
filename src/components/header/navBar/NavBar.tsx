@@ -31,8 +31,6 @@ const NavBar: FC = () => {
 					</NavLink>
 				</div>
 			</div>
-			{/* <MainSearch />
-			<UserEntry /> */}
 		</>
 	)
 }

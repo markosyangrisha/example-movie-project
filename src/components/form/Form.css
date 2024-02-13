@@ -1,0 +1,133 @@
+.form-modal__window {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 55;
+	background-color: rgba(0, 0, 0, 0.515);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-modal__inner {
+	max-width: 400px;
+	width: 100%;
+	position: relative;
+	padding: 20px;
+	background-color: #202331;
+	border-radius: 0.8em;
+	z-index: 5555;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+		rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.form-sign_in-btn,
+.form-sign_up-btn {
+	padding: 10px 15px;
+	border-radius: 0.7em;
+	color: var(--text-color);
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: 0.2s;
+	margin-bottom: 20px;
+}
+
+.form-sign_in-btn:hover,
+.form-sign_up-btn:hover {
+	background-color: #262a3a;
+}
+
+.form-sign_in-btn {
+	margin-right: 10px;
+	background-color: #262a3a;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-inner {
+	margin-bottom: 15px;
+	position: relative;
+}
+
+.form-inner input {
+	width: 100%;
+	background-color: #262a3a;
+	padding: 15px 15px 15px 37px;
+	border-radius: 0.7em;
+	color: var(--text-color);
+}
+
+.form-inner input:focus {
+	outline: 1px solid rgba(141, 141, 141, 0.281);
+}
+
+.form-email {
+}
+
+.form-password {
+}
+
+/* *** */
+
+#form-close__icon {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+
+.form-inner svg {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #666c88;
+}
+
+#form-user__icon {
+	left: 10px;
+}
+
+#form-email__icon {
+	left: 10px;
+}
+
+#form-lock__icon {
+	left: 10px;
+}
+
+#form-eye__icon,
+#form-eye__off-icon {
+	right: 10px;
+	cursor: pointer;
+}
+
+.form-modal__button {
+	/* color: var(--text-color); */
+	color: white;
+	background-color: #63ca2d;
+	background-color: #e50914;
+	padding: 15px;
+	border-radius: 0.7em;
+	margin-bottom: 20px;
+}
+
+.form-modal__inner-text {
+	color: var(--text-color);
+	font-size: 0.8em;
+	text-align: center;
+}
+
+.form-modal__inner-text a {
+	color: rgb(94, 215, 60);
+}
+
+.form-modal__inner-text a:hover {
+	text-decoration: underline;
+}

@@ -1,12 +1,11 @@
 import { FC } from 'react'
-import { NavLink } from 'react-router-dom'
 import './UserEntry.css'
 
 const UserEntry: FC = () => {
 	return (
 		<div className='user-entry'>
-			<NavLink id='sign-in' to='sign-in'>Sign In</NavLink>
-			<NavLink id='sign-up' to='sign-Up'>Sign Up</NavLink>
+			<button id='sign-in'>Sign In</button>
+			<button id='sign-up'>Sign Up</button>
 		</div>
 	)
 }
