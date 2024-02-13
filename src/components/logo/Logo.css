@@ -12,3 +12,14 @@
 	font-size: 2em;
 	margin-right: 10px;
 }
+
+@media (max-width: 1024px) {
+	.logo {
+		font-size: 1em;
+		font-weight: 400;
+	}
+	.logo svg {
+		font-size: 1.5em;
+		/* margin-right: 10px; */
+	}
+}

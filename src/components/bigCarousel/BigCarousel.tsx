@@ -2,7 +2,6 @@ import { FC } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
-import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { URL_NOW_PLAYING } from '../../server/params'
 import { BASE_IMAGE_URL } from '../../server/server'
 import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
@@ -29,8 +28,6 @@ const BigCarousel: FC = () => {
 		url: URL_NOW_PLAYING,
 	})
 
-	const { genres } = useExactlyGenres()
-
 	const randomMovies = [...(data?.results ?? [])].sort(
 		() => Math.random() - 0.5
 	)
@@ -48,15 +45,15 @@ const BigCarousel: FC = () => {
 								alt={movie.title}
 							/>
 							<div className='big-carousel__item-info'>
-									<span className='big-carousel__item-info-title'>
-										{movie.title}
-									</span>
-									<span className='big-carousel__item-info-vote'>
-										{movie.vote_average}
-									</span>
-									<span className='big-carousel__item-info-language'>
-										{movie.original_language}
-									</span>
+								<span className='big-carousel__item-info-title'>
+									{movie.title}
+								</span>
+								<span className='big-carousel__item-info-vote'>
+									Vote average: {movie.vote_average}
+								</span>
+								<span className='big-carousel__item-info-language'>
+									{movie.original_language}
+								</span>
 							</div>
 						</div>
 					))
