@@ -1,15 +1,15 @@
 import { FC } from 'react'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
-import { toggleList } from '../../store/slices/genresList/genresList'
+import { useActions } from '../../hooks/actions'
+import { useAppSelector } from '../../hooks/redux'
 import { Icons } from '../../widgets/icons'
 import NavBar from '../header/navBar/NavBar'
 import Logo from '../logo/Logo'
-import './BurgerMenu.css'
 import UserEntry from '../userEntry/UserEntry'
+import './BurgerMenu.css'
 
 const BurgerMenu: FC = () => {
 	const { isOpenGenresList } = useAppSelector(state => state.genresList)
-	const dispatch = useAppDispatch()
+	const { toggleList } = useActions()
 
 	return (
 		<>
@@ -18,7 +18,7 @@ const BurgerMenu: FC = () => {
 					<div className='burger-menu_inner'>
 						<Icons.Close
 							className='burger-close__icon'
-							onClick={() => dispatch(toggleList(false))}
+							onClick={() => toggleList(false)}
 						/>
 						<Logo />
 						<NavBar />
@@ -27,7 +27,7 @@ const BurgerMenu: FC = () => {
 				) : (
 					<Icons.Burger
 						className='open-burger__icon'
-						onClick={() => dispatch(toggleList(true))}
+						onClick={() => toggleList(true)}
 					/>
 				)}
 			</div>

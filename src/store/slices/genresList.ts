@@ -19,4 +19,4 @@ export const genresListSlice = createSlice({
 })
 
 export const genresListReducer = genresListSlice.reducer
-export const { toggleList } = genresListSlice.actions
+export const genresListActions = genresListSlice.actions

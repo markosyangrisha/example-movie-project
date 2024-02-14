@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { fetchExactlyGenresApi } from './slices/fetchExactlyGenres/fetchExactlyGenres'
-import { fetchGenresApi } from './slices/fetchGenres/genresServerAPI'
-import { fetchMovieDetails } from './slices/fetchMovieDetails/fetchMovieDetails'
-import { fetchMoviesApi } from './slices/fetchMovies/moviesServerAPI'
-import { genresListReducer } from './slices/genresList/genresList'
-import { searchMoviesApi } from './slices/searchSlice/searchServerAPI'
+import { fetchExactlyGenresApi } from './slices/fetchExactlyGenres'
+import { fetchMovieDetails } from './slices/fetchMovieDetails'
+import { genresListReducer } from './slices/genresList'
+import { fetchGenresApi } from './slices/genresServerAPI'
+import { fetchMoviesApi } from './slices/moviesServerAPI'
+import { searchMoviesApi } from './slices/searchServerAPI'
 
 const rootRouters = combineReducers({
 	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,

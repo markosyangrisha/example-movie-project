@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useParams } from 'react-router-dom'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { BASE_IMAGE_URL } from '../../server/server'
-import { useFetchMovieDetailsQuery } from '../../store/slices/fetchMovieDetails/fetchMovieDetails'
+import { useFetchMovieDetailsQuery } from '../../store/slices/fetchMovieDetails'
 import { Icons } from '../../widgets/icons'
 import './MovieDetails.css'
 

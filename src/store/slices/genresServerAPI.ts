@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IGenresServerResponse } from '../../../server/genresTypes'
-import { Authorization, BASE_URL } from '../../../server/server'
+import { IGenresServerResponse } from '../../server/genresTypes'
+import { Authorization, BASE_URL } from '../../server/server'
 
 export const fetchGenresApi = createApi({
 	reducerPath: 'fetchGenresApi',

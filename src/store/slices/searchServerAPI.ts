@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Authorization, BASE_URL } from '../../../server/server'
-import { URL_SEARCH } from '../../../server/params'
-import { IMoviesServerResponse } from '../../../server/moviesTypes'
+import { IMoviesServerResponse } from '../../server/moviesTypes'
+import { URL_SEARCH } from '../../server/params'
+import { Authorization, BASE_URL } from '../../server/server'
 
 export const searchMoviesApi = createApi({
 	reducerPath: 'searchMoviesApi',

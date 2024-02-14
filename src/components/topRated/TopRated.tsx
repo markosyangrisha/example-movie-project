@@ -1,10 +1,12 @@
 import { FC } from 'react'
 import { URL_TOP_RATED } from '../../server/params'
-import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
+import { useFetchMoviesQuery } from '../../store/slices/moviesServerAPI'
 import Carousel from '../carousel/Carousel'
 
 const TopRated: FC = () => {
-	const { isError, isLoading, data } = useFetchMoviesQuery({url:URL_TOP_RATED})
+	const { isError, isLoading, data } = useFetchMoviesQuery({
+		url: URL_TOP_RATED,
+	})
 
 	return (
 		<>

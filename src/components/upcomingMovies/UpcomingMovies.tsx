@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { URL_UPCOMING } from '../../server/params'
-import { useFetchMoviesQuery } from '../../store/slices/fetchMovies/moviesServerAPI'
+import { useFetchMoviesQuery } from '../../store/slices/moviesServerAPI'
 import Carousel from '../carousel/Carousel'
 
 import './UpcomingMovies.css'
