@@ -42,6 +42,9 @@
 
 .form-sign_in-btn {
 	margin-right: 10px;
+}
+
+.form-sign_in-btn.active-form {
 	background-color: #262a3a;
 }
 

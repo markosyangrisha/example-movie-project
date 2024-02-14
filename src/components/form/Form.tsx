@@ -1,8 +1,10 @@
 import { FC } from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { Icons } from '../../widgets/icons'
 import './Form.css'
+import { useActions } from '../../hooks/actions'
+import { useAppSelector } from '../../hooks/redux'
 
 interface IFromData {
 	username: string
@@ -12,6 +14,8 @@ interface IFromData {
 
 const Form: FC = () => {
 	const { register, handleSubmit } = useForm<IFromData>()
+	const { handlerFormStat, closeOpenForm } = useActions()
+	const { isOpenForm, signIn, signUp } = useAppSelector(state => state.form)
 
 	const formSubmit: SubmitHandler<IFromData> = data => {
 		console.log(data)
@@ -20,9 +24,19 @@ const Form: FC = () => {
 	return (
 		<div className='form-modal__window'>
 			<div className='form-modal__inner'>
-				<Icons.Close id='form-close__icon' />
-				<button className='form-sign_in-btn'>Sign In</button>
-				<button className='form-sign_up-btn'>Sign Up</button>
+				<Icons.Close onClick={() => closeOpenForm()} id='form-close__icon' />
+				<button
+					onClick={() => handlerFormStat(signIn)}
+					className={`form-sign_in-btn ${signIn && 'active-form'}`}
+				>
+					Sign In
+				</button>
+				<button
+					onClick={() => handlerFormStat(signUp)}
+					className={`form-sign_up-btn ${signIn && 'active-form'}`}
+				>
+					Sign Up
+				</button>
 				<form onSubmit={handleSubmit(formSubmit)} className='form'>
 					<div className='form-inner form-username'>
 						<input

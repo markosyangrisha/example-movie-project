@@ -5,14 +5,16 @@ import { genresListReducer } from './slices/genresList'
 import { fetchGenresApi } from './slices/genresServerAPI'
 import { fetchMoviesApi } from './slices/moviesServerAPI'
 import { searchMoviesApi } from './slices/searchServerAPI'
+import { formReducer } from './slices/formSlice';
 
 const rootRouters = combineReducers({
 	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,
 	[fetchGenresApi.reducerPath]: fetchGenresApi.reducer,
 	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer,
 	[fetchExactlyGenresApi.reducerPath]: fetchExactlyGenresApi.reducer,
-	genresList: genresListReducer,
 	[fetchMovieDetails.reducerPath]: fetchMovieDetails.reducer,
+	genresList: genresListReducer,
+	form: formReducer
 })
 
 export const setupStore = () => {
