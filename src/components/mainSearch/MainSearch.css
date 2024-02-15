@@ -13,17 +13,10 @@
 
 #search-input {
 	padding: 10px;
-	border-radius: 3em;
-	background-color: #191a1e;
+	border-radius: 0.5em;
 	border: 1px solid var(--primary-color);
-	caret-color: white;
+	caret-color: rgb(31, 21, 21);
 	width: 100%;
-	color: white;
-}
-
-#search-input::placeholder {
-	background-color: #191a1e;
-	color: var(--primary-color);
 }
 
 .search-icon {
@@ -32,6 +25,7 @@
 	right: 5px;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
+	color: black;
 }
 
 @media (max-width: 1024px) {
