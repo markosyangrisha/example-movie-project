@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useActions } from '../hooks/actions'
 import { IGenresData } from '../server/genresTypes'
-import { URL_GENRES } from '../server/params'
 import { useFetchGenresQuery } from '../store/slices/genresServerAPI'
 
 type Aggr = {
@@ -10,7 +9,7 @@ type Aggr = {
 
 export const useExactlyGenres = () => {
 	const navigate = useNavigate()
-	const { data } = useFetchGenresQuery(URL_GENRES)
+	const { data } = useFetchGenresQuery(null)
 	const { toggleList } = useActions()
 
 	const genres = data?.genres?.reduce((aggr: Aggr, el: IGenresData) => {

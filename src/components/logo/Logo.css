@@ -20,6 +20,11 @@
 	}
 	.logo svg {
 		font-size: 1.5em;
-		/* margin-right: 10px; */
+	}
+}
+
+@media (max-width: 860px) {
+	.logo span {
+		display: none;
 	}
 }

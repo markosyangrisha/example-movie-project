@@ -54,7 +54,14 @@
 	}
 }
 
-@media (max-width: 998px) {
+@media (max-width: 860px) {
+	.menu-list {
+		display: flex;
+		gap: 15px;
+	}
+}
+
+@media (max-width: 724px) {
 	.nav-bar {
 		display: none;
 	}

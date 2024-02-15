@@ -5,7 +5,7 @@
 	z-index: 10;
 }
 
-.header .header-container {
+.header-container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -14,8 +14,28 @@
 	width: 100%;
 }
 
-@media (max-width: 1024px) {
-	.header .header-container {
+.open-burger__icon {
+	font-size: 1em;
+	cursor: pointer;
+	display: none;
+}
+
+.burger-logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+@media (max-width: 900px) {
+	.header-container {
 		gap: 0px;
+	}
+}
+
+@media (max-width: 724px) {
+	.header-container {
+	}
+	.open-burger__icon {
+		display: block;
 	}
 }

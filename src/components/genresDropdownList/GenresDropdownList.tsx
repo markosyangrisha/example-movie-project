@@ -1,11 +1,10 @@
 import { FC } from 'react'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
-import { URL_GENRES } from '../../server/params'
 import { useFetchGenresQuery } from '../../store/slices/genresServerAPI'
 import './GenresDropdownList.css'
 
 const GenresDropdownList: FC = () => {
-	const { data } = useFetchGenresQuery(URL_GENRES)
+	const { data } = useFetchGenresQuery(null)
 	const { thatGenreMovies } = useExactlyGenres()
 
 	return (

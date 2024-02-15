@@ -76,9 +76,7 @@ const MovieDetails: FC = () => {
 								</ul>
 							</span>
 						</li>
-						<li>
-							<span>Age:</span> <span>{data?.adult ? '18 +' : '16'}</span>
-						</li>
+
 						<li>
 							<span>Collection:</span>
 							<span>
@@ -86,6 +84,13 @@ const MovieDetails: FC = () => {
 									? data.belongs_to_collection.name
 									: ''}
 							</span>
+						</li>
+						<li>
+							{data?.adult && (
+								<>
+									<span>Age:</span> <span>18+</span>
+								</>
+							)}
 						</li>
 					</ul>
 					{/*  movie-details__card-info */}

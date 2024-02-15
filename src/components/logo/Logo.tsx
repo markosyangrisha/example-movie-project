@@ -7,7 +7,7 @@ const Logo: FC = () => {
 	return (
 		<Link to='/' className='logo'>
 			<Icons.Film />
-			Movie
+			<span>Movie</span>
 		</Link>
 	)
 }

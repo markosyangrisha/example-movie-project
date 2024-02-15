@@ -6,6 +6,7 @@
 	left: 0;
 	right: 0;
 	z-index: 55;
+	padding: 10px;
 	background-color: rgba(0, 0, 0, 0.515);
 	display: flex;
 	justify-content: center;
@@ -44,7 +45,7 @@
 	margin-right: 10px;
 }
 
-.form-sign_in-btn.active-form {
+.active-form {
 	background-color: #262a3a;
 }
 
@@ -68,12 +69,6 @@
 
 .form-inner input:focus {
 	outline: 1px solid rgba(141, 141, 141, 0.281);
-}
-
-.form-email {
-}
-
-.form-password {
 }
 
 #form-close__icon {
@@ -110,25 +105,15 @@
 }
 
 .form-modal__button {
-	/* color: var(--text-color); */
 	color: white;
 	background-color: #63ca2d;
 	background-color: #e50914;
 	padding: 15px;
 	border-radius: 0.7em;
 	margin-bottom: 20px;
+	transition: 0.2s;
 }
 
-.form-modal__inner-text {
-	color: var(--text-color);
-	font-size: 0.8em;
-	text-align: center;
-}
-
-.form-modal__inner-text a {
-	color: rgb(94, 215, 60);
-}
-
-.form-modal__inner-text a:hover {
-	text-decoration: underline;
+.form-modal__button:hover {
+	background-color: #e50914b9;
 }

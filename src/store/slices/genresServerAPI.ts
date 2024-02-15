@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IGenresServerResponse } from '../../server/genresTypes'
-import { Authorization, BASE_URL } from '../../server/server'
+import { URL_GENRES } from '../../server/params'
+import { Authorization, BASE_URL } from './../../server/server'
 
 export const fetchGenresApi = createApi({
 	reducerPath: 'fetchGenresApi',
@@ -8,9 +9,9 @@ export const fetchGenresApi = createApi({
 		baseUrl: BASE_URL,
 	}),
 	endpoints: build => ({
-		fetchGenres: build.query<IGenresServerResponse, string>({
-			query: url => ({
-				url: url,
+		fetchGenres: build.query<IGenresServerResponse, null>({
+			query: () => ({
+				url: URL_GENRES,
 				method: 'GET',
 				headers: {
 					accept: 'application/json',

@@ -1,17 +1,28 @@
 import { FC } from 'react'
-import Logo from '../logo/Logo'
-import NavBar from './navBar/NavBar'
+import { useActions } from '../../hooks/actions'
+import { Icons } from '../../widgets/icons'
 import BurgerMenu from '../burgerMenu/BurgerMenu'
-import './Header.css'
-import UserEntry from '../userEntry/UserEntry'
+import Logo from '../logo/Logo'
 import MainSearch from '../mainSearch/MainSearch'
+import UserEntry from '../userEntry/UserEntry'
+import './Header.css'
+import NavBar from './navBar/NavBar'
 
 const Header: FC = () => {
+	const { openBurgerMenuHandler } = useActions()
+
+
 	return (
 		<>
 			<div className='header'>
 				<div className='header-container container'>
-					<Logo />
+					<div className='burger-logo'>
+						<Icons.Burger
+							className='open-burger__icon'
+							onClick={() => openBurgerMenuHandler(true)}
+						/>
+						<Logo />
+					</div>
 					<NavBar />
 					<MainSearch />
 					<UserEntry />
