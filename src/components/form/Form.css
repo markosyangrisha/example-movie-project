@@ -117,3 +117,8 @@
 .form-modal__button:hover {
 	background-color: #e50914b9;
 }
+
+.auth-error {
+	color: red;
+	font-size: 0.8em;
+}

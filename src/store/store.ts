@@ -1,12 +1,15 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { fetchExactlyGenresApi } from './slices/fetchExactlyGenres'
-import { fetchMovieDetails } from './slices/fetchMovieDetails'
+import { burgerMenuReducer } from './slices/burgerMenu'
+import { fetchExactlyGenresApi } from './slices/fetchExactlyGenresApi'
+import { fetchMovieDetails } from './slices/fetchMovieDetailsApi'
+import { formReducer } from './slices/formSlice'
 import { genresListReducer } from './slices/genresList'
 import { fetchGenresApi } from './slices/genresServerAPI'
 import { fetchMoviesApi } from './slices/moviesServerAPI'
 import { searchMoviesApi } from './slices/searchServerAPI'
-import { formReducer } from './slices/formSlice';
-import { burgerMenuReducer } from './slices/burgerMenu';
+import { formStateApi } from './slices/formApi';
+import { userStateApi } from './slices/usersStateApi';
+import { userAuthReducer } from './slices/userAuth';
 
 const rootRouters = combineReducers({
 	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,
@@ -14,9 +17,12 @@ const rootRouters = combineReducers({
 	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer,
 	[fetchExactlyGenresApi.reducerPath]: fetchExactlyGenresApi.reducer,
 	[fetchMovieDetails.reducerPath]: fetchMovieDetails.reducer,
+	[formStateApi.reducerPath]: formStateApi.reducer,
+	[userStateApi.reducerPath] : userStateApi.reducer,
 	genresList: genresListReducer,
-	form: formReducer,
-	burgerMenu: burgerMenuReducer
+	formAuth: formReducer,
+	burgerMenu: burgerMenuReducer,
+	userAuth: userAuthReducer,
 })
 
 export const setupStore = () => {
@@ -29,7 +35,9 @@ export const setupStore = () => {
 				fetchGenresApi.middleware,
 				searchMoviesApi.middleware,
 				fetchExactlyGenresApi.middleware,
-				fetchMovieDetails.middleware
+				fetchMovieDetails.middleware,
+				formStateApi.middleware,
+				userStateApi.middleware
 			),
 	})
 }

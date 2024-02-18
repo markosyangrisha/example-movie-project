@@ -8,7 +8,7 @@ const initialState: GenresListState = {
 	isOpenGenresList: false,
 }
 
-export const genresListSlice = createSlice({
+const genresListSlice = createSlice({
 	name: 'genresList',
 	initialState,	
 	reducers: {

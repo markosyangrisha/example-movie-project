@@ -4,7 +4,7 @@ import { useFetchGenresQuery } from '../../store/slices/genresServerAPI'
 import './GenresDropdownList.css'
 
 const GenresDropdownList: FC = () => {
-	const { data } = useFetchGenresQuery(null)
+	const { data } = useFetchGenresQuery()
 	const { thatGenreMovies } = useExactlyGenres()
 
 	return (

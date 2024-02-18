@@ -3,3 +3,8 @@ export const Authorization =
 
 export const BASE_URL = 'https://api.themoviedb.org/3/'
 export const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p/w500/' 
+export const URL_TOKEN__AUTH = 'https://www.themoviedb.org/authenticate/'
+
+// Users
+
+export const USERS_BASE_URL = 'http://localhost:8000/';

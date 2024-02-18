@@ -9,7 +9,7 @@ export const fetchGenresApi = createApi({
 		baseUrl: BASE_URL,
 	}),
 	endpoints: build => ({
-		fetchGenres: build.query<IGenresServerResponse, null>({
+		fetchGenres: build.query<IGenresServerResponse, void>({
 			query: () => ({
 				url: URL_GENRES,
 				method: 'GET',

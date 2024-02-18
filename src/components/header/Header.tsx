@@ -5,12 +5,14 @@ import BurgerMenu from '../burgerMenu/BurgerMenu'
 import Logo from '../logo/Logo'
 import MainSearch from '../mainSearch/MainSearch'
 import UserEntry from '../userEntry/UserEntry'
-import './Header.css'
 import NavBar from './navBar/NavBar'
+import './Header.css'
+import { useAppSelector } from '../../hooks/redux'
+import UserProfile from '../userProfile/UserProfile'
 
 const Header: FC = () => {
 	const { openBurgerMenuHandler } = useActions()
-
+	const { isUserAuth } = useAppSelector(state => state.userAuth)
 
 	return (
 		<>
@@ -25,7 +27,7 @@ const Header: FC = () => {
 					</div>
 					<NavBar />
 					<MainSearch />
-					<UserEntry />
+					{isUserAuth ? <UserProfile /> : <UserEntry />}
 					<BurgerMenu />
 				</div>
 			</div>

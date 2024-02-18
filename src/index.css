@@ -15,6 +15,10 @@ body {
 	color: white;
 }
 
+.stop-scroll {
+	overflow: hidden;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;

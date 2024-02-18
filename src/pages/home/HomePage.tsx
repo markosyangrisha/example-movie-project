@@ -1,9 +1,9 @@
 import { FC } from 'react'
+import TopRated from '../../components/topRated/TopRated'
+import UpcomingMovies from '../../components/upcomingMovies/UpcomingMovies'
 import BigCarousel from '../../components/bigCarousel/BigCarousel'
 import PopularMovies from '../../components/popularMovies/PopularMovies'
-import TopRated from '../../components/topRated/TopRated'
 import './HomePage.css'
-import UpcomingMovies from '../../components/upcomingMovies/UpcomingMovies'
 
 const HomePage: FC = () => {
 	return (

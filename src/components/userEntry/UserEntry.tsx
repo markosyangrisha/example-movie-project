@@ -6,7 +6,7 @@ import { useAppSelector } from '../../hooks/redux'
 
 const UserEntry: FC = () => {
 	const { handlerFormStat } = useActions()
-	const { isOpenForm } = useAppSelector(state => state.form)
+	const { isOpenForm } = useAppSelector(state => state.formAuth)
 
 	return (
 		<div className='user-entry'>
