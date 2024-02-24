@@ -1,17 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IUserSession, IUserToken } from '../../server/formTypes'
+import { IUserData } from '../../../server/userTypes'
+
+type IUserParams = Omit<IUserData, 'username' | 'confirmPassword' | 'bookmark'>
 
 interface IUserAuth {
 	isUserAuth: boolean
-}
-
-interface IUserParams {
-	token: IUserToken | undefined
-	session: IUserSession | undefined
+	user: IUserParams | null
 }
 
 const initialState: IUserAuth = {
-	isUserAuth: JSON.parse(localStorage.getItem('auth') ?? 'false'),
+	isUserAuth: JSON.parse(localStorage.getItem('auth') ?? 'null'),
+	user: JSON.parse(localStorage.getItem('user') ?? 'null'),
 }
 
 const userAuthSlice = createSlice({
@@ -19,15 +18,14 @@ const userAuthSlice = createSlice({
 	initialState,
 	reducers: {
 		authUser: (state, { payload }: PayloadAction<IUserParams>) => {
-			localStorage.setItem('token', JSON.stringify(payload.token))
+			localStorage.setItem('user', JSON.stringify((state.user = payload)))
 			localStorage.setItem('auth', JSON.stringify((state.isUserAuth = true)))
-			sessionStorage.setItem('session', JSON.stringify(payload.session))
 		},
 		logoutUser: state => {
-			localStorage.removeItem('token')
 			localStorage.removeItem('auth')
-			sessionStorage.removeItem('session')
+			localStorage.removeItem('user')
 			state.isUserAuth = false
+			state.user = null
 		},
 	},
 })

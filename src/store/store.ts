@@ -1,24 +1,14 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { burgerMenuReducer } from './slices/burgerMenu'
-import { fetchExactlyGenresApi } from './slices/fetchExactlyGenresApi'
-import { fetchMovieDetails } from './slices/fetchMovieDetailsApi'
-import { formReducer } from './slices/formSlice'
-import { genresListReducer } from './slices/genresList'
-import { fetchGenresApi } from './slices/genresServerAPI'
-import { fetchMoviesApi } from './slices/moviesServerAPI'
-import { searchMoviesApi } from './slices/searchServerAPI'
-import { formStateApi } from './slices/formApi';
-import { userStateApi } from './slices/usersStateApi';
-import { userAuthReducer } from './slices/userAuth';
+import { burgerMenuReducer } from './slices/burgerMenuSlice/burgerMenu'
+import { formReducer } from './slices/formSlice/formSlice'
+import { genresListReducer } from './slices/moviesApi/genresList'
+import { movieApi } from './slices/moviesApi/moviesStateApi'
+import { userAuthReducer } from './slices/userStateApi/userAuth'
+import { usersApi } from './slices/userStateApi/usersStateApi'
 
 const rootRouters = combineReducers({
-	[fetchMoviesApi.reducerPath]: fetchMoviesApi.reducer,
-	[fetchGenresApi.reducerPath]: fetchGenresApi.reducer,
-	[searchMoviesApi.reducerPath]: searchMoviesApi.reducer,
-	[fetchExactlyGenresApi.reducerPath]: fetchExactlyGenresApi.reducer,
-	[fetchMovieDetails.reducerPath]: fetchMovieDetails.reducer,
-	[formStateApi.reducerPath]: formStateApi.reducer,
-	[userStateApi.reducerPath] : userStateApi.reducer,
+	[movieApi.reducerPath]: movieApi.reducer,
+	[usersApi.reducerPath]: usersApi.reducer,
 	genresList: genresListReducer,
 	formAuth: formReducer,
 	burgerMenu: burgerMenuReducer,
@@ -30,15 +20,7 @@ export const setupStore = () => {
 		reducer: rootRouters,
 
 		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware().concat(
-				fetchMoviesApi.middleware,
-				fetchGenresApi.middleware,
-				searchMoviesApi.middleware,
-				fetchExactlyGenresApi.middleware,
-				fetchMovieDetails.middleware,
-				formStateApi.middleware,
-				userStateApi.middleware
-			),
+			getDefaultMiddleware().concat(movieApi.middleware, usersApi.middleware),
 	})
 }
 

@@ -71,6 +71,7 @@
 	font-size: 1.5em;
 	transition: 0.2s;
 	color: #bbbb04;
+	z-index: 555555;
 }
 
 .carousel-movies__item-info__favorite:hover {

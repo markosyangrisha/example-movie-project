@@ -2,15 +2,14 @@ import { FC } from 'react'
 import { useParams } from 'react-router-dom'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { BASE_IMAGE_URL } from '../../server/server'
-import { useFetchMovieDetailsQuery } from '../../store/slices/fetchMovieDetailsApi'
 import { Icons } from '../../widgets/icons'
 import './MovieDetails.css'
+import { useFetchMovieDetailsQuery } from '../../store/slices/moviesApi/fetchMovieDetailsApi'
 
 const MovieDetails: FC = () => {
 	const { id } = useParams<'id'>()
 	const { data, isError, isLoading } = useFetchMovieDetailsQuery(id || '')
 	const { thatGenreMovies } = useExactlyGenres()
-
 	return (
 		<>
 			{isError && <p>Error</p>}

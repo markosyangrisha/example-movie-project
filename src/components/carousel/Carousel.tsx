@@ -1,13 +1,8 @@
 import { FC } from 'react'
 import Slider from 'react-slick'
 import { IMoviesData } from '../../server/moviesTypes'
-import CarouseItem from '../carouselItem/CarouseItem'
+import CarouselItem from '../carouselItem/CarouseItem'
 import './Carousel.css'
-
-interface ICarouselProps {
-	items?: IMoviesData[]
-	categoryTitle: string
-}
 
 const settings = {
 	infinite: true,
@@ -42,6 +37,11 @@ const settings = {
 	],
 }
 
+interface ICarouselProps {
+	items?: IMoviesData[]
+	categoryTitle: string
+}
+
 const Carousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
 	return (
 		<div className='carousel-movies'>
@@ -50,7 +50,7 @@ const Carousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
 				<div className='carousel-wrapper'>
 					<Slider {...settings}>
 						{items?.map(movie => (
-							<CarouseItem key={movie.id} {...movie} />
+							<CarouselItem key={movie.id} {...movie} />
 						))}
 					</Slider>
 				</div>

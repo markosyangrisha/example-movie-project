@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import { URL_NOW_PLAYING } from '../../server/params'
 import { BASE_IMAGE_URL } from '../../server/server'
-import { useFetchMoviesQuery } from '../../store/slices/moviesServerAPI'
+import { useFetchMoviesQuery } from '../../store/slices/moviesApi/moviesStateApi'
 import './BigCarousel.css'
 
 const settings = {

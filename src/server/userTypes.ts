@@ -4,4 +4,10 @@ export interface IUserData {
 	email: string
 	password: string
 	confirmPassword: string
+	bookmark: IUserBookMarkMovieId[]
+}
+
+export interface IUserBookMarkMovieId {
+	movieId: number
+	isAddBookMark: boolean
 }

@@ -1,27 +1,22 @@
+import { useRef } from 'react'
 import { SubmitHandler, UseFormReset } from 'react-hook-form'
 import { useActions } from '../../hooks/actions'
 import { IUserData } from '../../server/userTypes'
 import {
-	useUserSessionQuery,
-	useUserTokenQuery,
-} from '../../store/slices/formApi'
-import {
 	useGetUserDataLoginQuery,
 	useGetUserDataRegisterQuery,
 	useLoginUserMutation,
-} from '../../store/slices/usersStateApi'
-import { URL_TOKEN__AUTH } from '../../server/server';
+} from '../../store/slices/userStateApi/usersStateApi'
 
 export const useLoginHandler = (reset: UseFormReset<IUserData>) => {
+	const loginInputRef = useRef<HTMLInputElement>(null)
 	const { data: loginData } = useGetUserDataLoginQuery()
-	const { data: token } = useUserTokenQuery()
-	const { data: session } = useUserSessionQuery()
-	const { data: registerUser } = useGetUserDataRegisterQuery()
+	const { data: registerData } = useGetUserDataRegisterQuery()
 	const [loginUser] = useLoginUserMutation()
-	const { authUser } = useActions()
+	const { authUser, closeOpenForm } = useActions()
 
-	const login: SubmitHandler<Omit<IUserData, 'id'>> = async formData => {
-		const isRegister = registerUser?.find(
+	const login: SubmitHandler<IUserData> = async formData => {
+		const isRegister = registerData?.find(
 			user =>
 				user.email === formData.email && user.password === formData.password
 		)
@@ -37,22 +32,24 @@ export const useLoginHandler = (reset: UseFormReset<IUserData>) => {
 		)
 
 		if (isLogin) {
-			authUser({ token, session })
-			window.location.href = `${URL_TOKEN__AUTH}${token?.request_token}`
+			authUser({ ...formData, id: isRegister.id })
 			return
 		}
+		try {
+			const response = await loginUser(formData)
 
-		await loginUser(formData)
-			.unwrap()
-			.then(res => console.log(res))
-			.catch(error => console.log(error))
+			if (!response) throw new Error('this is Error')
 
-		window.location.href = `${URL_TOKEN__AUTH}${token?.request_token}`
-		authUser({ token, session })
+			authUser({ ...formData, id: isRegister.id })
+		} catch (error) {
+			console.log('error', error)
+		}
 		reset()
+		closeOpenForm(false)
 	}
 
 	return {
 		login,
+		loginInputRef,
 	}
 }

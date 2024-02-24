@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { BASE_IMAGE_URL } from '../../server/server'
-import { useSearchMoviesQuery } from '../../store/slices/searchServerAPI'
+import { useSearchMoviesQuery } from '../../store/slices/moviesApi/searchMoviesAPI'
 import { Icons } from '../../widgets/icons'
 import './SearchMoviesPage.css'
 

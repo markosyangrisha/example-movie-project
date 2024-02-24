@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IMoviesServerResponse } from '../../server/moviesTypes'
-import { Authorization, BASE_URL } from '../../server/server'
+import { IMoviesServerResponse } from '../../../server/moviesTypes'
+import { Authorization, BASE_URL } from '../../../server/server'
 
 interface IQueryParams {
 	url: string
@@ -8,11 +8,12 @@ interface IQueryParams {
 	region?: string
 }
 
-export const fetchMoviesApi = createApi({
-	reducerPath: 'fetchMoviesApi',
+export const movieApi = createApi({
+	reducerPath: 'movie/Api',
 	baseQuery: fetchBaseQuery({
 		baseUrl: BASE_URL,
 	}),
+	tagTypes: ['Users'],
 	endpoints: build => ({
 		fetchMovies: build.query<IMoviesServerResponse, IQueryParams>({
 			query: params => ({
@@ -31,4 +32,4 @@ export const fetchMoviesApi = createApi({
 	}),
 })
 
-export const { useFetchMoviesQuery } = fetchMoviesApi
+export const { useFetchMoviesQuery } = movieApi

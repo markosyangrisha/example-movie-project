@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { URL_POPULAR } from '../../server/params'
-import { useFetchMoviesQuery } from '../../store/slices/moviesServerAPI'
 import Carousel from '../carousel/Carousel'
+import { useFetchMoviesQuery } from '../../store/slices/moviesApi/moviesStateApi'
 
 const PopularMovies: FC = () => {
 	const { data, isError, isLoading } = useFetchMoviesQuery({ url: URL_POPULAR })

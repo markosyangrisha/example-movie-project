@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
-import { useFetchGenresQuery } from '../../store/slices/genresServerAPI'
+import { useFetchGenresQuery } from '../../store/slices/moviesApi/fetchGenresApi'
 import './GenresDropdownList.css'
 
 const GenresDropdownList: FC = () => {

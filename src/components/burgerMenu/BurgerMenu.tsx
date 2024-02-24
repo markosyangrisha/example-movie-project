@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useActions } from '../../hooks/actions'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { useAppSelector } from '../../hooks/redux'
-import { useFetchGenresQuery } from '../../store/slices/genresServerAPI'
+import { useFetchGenresQuery } from '../../store/slices/moviesApi/fetchGenresApi'
 import { Icons } from '../../widgets/icons'
 import './BurgerMenu.css'
 

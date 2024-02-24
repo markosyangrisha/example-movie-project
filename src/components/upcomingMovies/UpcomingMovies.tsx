@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { URL_UPCOMING } from '../../server/params'
-import { useFetchMoviesQuery } from '../../store/slices/moviesServerAPI'
 import Carousel from '../carousel/Carousel'
 
 import './UpcomingMovies.css'
+import { useFetchMoviesQuery } from '../../store/slices/moviesApi/moviesStateApi';
 
 const UpcomingMovies: FC = () => {
 	const { data, isError, isLoading } = useFetchMoviesQuery({

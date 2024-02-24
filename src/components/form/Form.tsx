@@ -1,12 +1,12 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useActions } from '../../hooks/actions'
 import { useAppSelector } from '../../hooks/redux'
 import { IUserData } from '../../server/userTypes'
 import { Icons } from '../../widgets/icons'
+import './Form.css'
 import { useLoginHandler } from './login'
 import { useRegistrationHandler } from './registration'
-import './Form.css'
 
 const Form: FC = () => {
 	const {
@@ -14,6 +14,7 @@ const Form: FC = () => {
 		handleSubmit,
 		reset,
 		formState: { errors },
+		setFocus,
 	} = useForm<IUserData>()
 
 	const { handlerFormStat, closeOpenForm, passwordEye, confirmPasswordEye } =
@@ -23,6 +24,10 @@ const Form: FC = () => {
 	)
 	const { registration } = useRegistrationHandler(reset)
 	const { login } = useLoginHandler(reset)
+
+	useEffect(() => {
+		setFocus(signUp ? 'username' : signIn ? 'email' : 'username')
+	}, [setFocus, signUp, signIn])
 
 	return (
 		<div className='form-modal__window'>

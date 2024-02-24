@@ -25,7 +25,7 @@ const NavBar: FC = () => {
 						<GenresDropdownList />
 						{/* Dropdown List */}
 					</div>
-					<NavLink to='/favorites'>
+					<NavLink to='/bookmark'>
 						<Icons.BookMark />
 						Bookmark
 					</NavLink>

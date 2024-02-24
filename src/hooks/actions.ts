@@ -1,15 +1,15 @@
 import { bindActionCreators } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
-import { genresListActions } from '../store/slices/genresList'
-import { formActions } from '../store/slices/formSlice';
-import { burgerMenuActions } from '../store/slices/burgerMenu';
-import { userAuthActions } from '../store/slices/userAuth';
+import { burgerMenuActions } from '../store/slices/burgerMenuSlice/burgerMenu'
+import { formActions } from '../store/slices/formSlice/formSlice'
+import { genresListActions } from '../store/slices/moviesApi/genresList'
+import { userAuthActions } from '../store/slices/userStateApi/userAuth'
 
 const allActions = {
 	...genresListActions,
 	...formActions,
 	...burgerMenuActions,
-	...userAuthActions
+	...userAuthActions,
 }
 
 export const useActions = () => {
