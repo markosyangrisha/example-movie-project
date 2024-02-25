@@ -1,32 +1,32 @@
 {
-	"login": [
-		{
-			"id": "3574",
-			"email": "markosyangrisha70@gmail.com",
-			"password": "hello"
-		},
-		{
-			"id": "40df",
-			"email": "helena@gmail.com",
-			"password": "helena"
-		}
-	],
-	"register": [
-		{
-			"id": "42d5",
-			"username": "Grisha",
-			"email": "markosyangrisha70@gmail.com",
-			"password": "hello",
-			"confirmPassword": "hello",
-			"bookmark": []
-		},
-		{
-			"id": "4d14",
-			"username": "Helena",
-			"email": "helena@gmail.com",
-			"password": "helena",
-			"confirmPassword": "helena",
-			"bookmark": []
-		}
-	]
+  "login": [
+    {
+      "id": "3574",
+      "email": "markosyangrisha70@gmail.com",
+      "password": "hello"
+    },
+    {
+      "id": "40df",
+      "email": "helena@gmail.com",
+      "password": "helena"
+    }
+  ],
+  "register": [
+    {
+      "id": "42d5",
+      "username": "Grisha",
+      "email": "markosyangrisha70@gmail.com",
+      "password": "hello",
+      "confirmPassword": "hello",
+      "bookmark": []
+    },
+    {
+      "id": "4d14",
+      "username": "Helena",
+      "email": "helena@gmail.com",
+      "password": "helena",
+      "confirmPassword": "helena",
+      "bookmark": []
+    }
+  ]
 }

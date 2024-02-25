@@ -1,7 +1,7 @@
-import { IMoviesData } from '../../../server/moviesTypes';
-import { IUserData } from '../../../server/userTypes';
-import { userStateInvalidatesTags } from './userStateParams';
-import { usersApi } from './usersStateApi';
+import { IMoviesData } from '../../../server/moviesTypes'
+import { IUserData } from '../../../server/userTypes'
+import { userStateInvalidatesTags } from './userStateParams'
+import { usersApi } from './usersStateApi'
 
 interface IBookMarkPostParams {
 	id: string
@@ -12,7 +12,7 @@ export const fetchBookMarksApi = usersApi.injectEndpoints({
 	endpoints: build => ({
 		postBookMarkMovies: build.mutation<IMoviesData, IBookMarkPostParams>({
 			query: ({ id, body }: IBookMarkPostParams) => ({
-				url: `register/${id}`,
+				url: `register/5${id}`,
 				method: 'PATCH',
 				headers: { 'Content-Type': 'application/json' },
 				body,
@@ -31,4 +31,7 @@ export const fetchBookMarksApi = usersApi.injectEndpoints({
 	}),
 })
 
-export const { usePostBookMarkMoviesMutation, useRemoveBookMarkMoviesMutation } = fetchBookMarksApi
+export const {
+	usePostBookMarkMoviesMutation,
+	useRemoveBookMarkMoviesMutation,
+} = fetchBookMarksApi
