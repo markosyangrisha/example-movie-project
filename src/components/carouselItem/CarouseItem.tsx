@@ -1,10 +1,11 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAddToBookMark } from '../../hooks/addToBookMark'
+// import { useAddToFavorites } from '../../hooks/addToFavorites'
 import { IMoviesData } from '../../server/moviesTypes'
 import { BASE_IMAGE_URL } from '../../server/server'
 import { Icons } from '../../widgets/icons'
 import './CarouselItem.css'
+import { useAddToFavorites } from '../../hooks/addToFavorites';
 
 const CarouselItem: FC<IMoviesData> = ({
 	id,
@@ -13,7 +14,7 @@ const CarouselItem: FC<IMoviesData> = ({
 	vote_average,
 }) => {
 	const navigate = useNavigate()
-	const { addToBookMarkList, isAddBookMark } = useAddToBookMark()
+	const { addToFavoritesList, isAddBookMark } = useAddToFavorites()
 
 	// console.log('carousel Item -- ', isAddBookMark)
 
@@ -36,7 +37,7 @@ const CarouselItem: FC<IMoviesData> = ({
 			</div>
 			<Icons.BookMark
 				style={{ color: `${isAddBookMark ? 'red' : 'yellow'}` }}
-				onClick={() => addToBookMarkList(id)}
+				onClick={() => addToFavoritesList(id)}
 				className='carousel-movies__item-info__favorite'
 			/>
 		</div>

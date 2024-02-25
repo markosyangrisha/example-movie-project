@@ -18,7 +18,7 @@
       "email": "markosyangrisha70@gmail.com",
       "password": "hello",
       "confirmPassword": "hello",
-      "bookmark": []
+      "favorites": []
     },
     {
       "id": "4d14",
@@ -26,7 +26,7 @@
       "email": "helena@gmail.com",
       "password": "helena",
       "confirmPassword": "helena",
-      "bookmark": []
+      "favorites": []
     }
   ]
 }

@@ -3,24 +3,24 @@ import { IUserData } from '../../../server/userTypes'
 import { userStateInvalidatesTags } from './userStateParams'
 import { usersApi } from './usersStateApi'
 
-interface IBookMarkPostParams {
+interface IFavoritesPostParams {
 	id: string
 	body: IUserData
 }
 
-export const fetchBookMarksApi = usersApi.injectEndpoints({
+export const fetchFavoriteApi = usersApi.injectEndpoints({
 	endpoints: build => ({
-		postBookMarkMovies: build.mutation<IMoviesData, IBookMarkPostParams>({
-			query: ({ id, body }: IBookMarkPostParams) => ({
-				url: `register/5${id}`,
+		postFavorite: build.mutation<IMoviesData, IFavoritesPostParams>({
+			query: ({ id, body }: IFavoritesPostParams) => ({
+				url: `register/${id}`,
 				method: 'PATCH',
 				headers: { 'Content-Type': 'application/json' },
 				body,
 			}),
 			invalidatesTags: userStateInvalidatesTags,
 		}),
-		removeBookMarkMovies: build.mutation<IMoviesData, IBookMarkPostParams>({
-			query: ({ id, body }: IBookMarkPostParams) => ({
+		removeFavoriteMovies: build.mutation<IMoviesData, IFavoritesPostParams>({
+			query: ({ id, body }: IFavoritesPostParams) => ({
 				url: `register/${id}`,
 				method: 'PATCH',
 				headers: { 'Content-Type': 'application/json' },
@@ -31,7 +31,5 @@ export const fetchBookMarksApi = usersApi.injectEndpoints({
 	}),
 })
 
-export const {
-	usePostBookMarkMoviesMutation,
-	useRemoveBookMarkMoviesMutation,
-} = fetchBookMarksApi
+export const { usePostFavoriteMutation, useRemoveFavoriteMoviesMutation } =
+	fetchFavoriteApi

@@ -1,4 +1,4 @@
-import BookMark from '../../bookMark/BookMark';
+import Favorites from '../../favorites/Favorites';
 import MovieDetails from '../../pages/movieDetails/MovieDetails'
 import NotFoundPage from '../../pages/notFoundPage/NotFoundPage'
 import SearchMoviesPage from '../../pages/searchMoviesPage/SearchMoviesPage'
@@ -18,8 +18,8 @@ export const routePath = [
 		component: MovieDetails,
 	},
 	{
-		path: 'bookmark',
-		component: BookMark,
+		path: 'favorites',
+		component: Favorites,
 	},
 	{
 		path: '*',
