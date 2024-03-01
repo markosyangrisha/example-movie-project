@@ -1,6 +1,6 @@
 import { IMoviesData } from '../../../server/moviesTypes'
 import { IUserData } from '../../../server/userTypes'
-import { userStateInvalidatesTags } from './userStateParams'
+import { userStateInvalidatesTags, userStateProvideTags } from './userStateParams'
 import { usersApi } from './usersStateApi'
 
 interface IFavoritesPostParams {
@@ -28,8 +28,14 @@ export const fetchFavoriteApi = usersApi.injectEndpoints({
 			}),
 			invalidatesTags: userStateInvalidatesTags,
 		}),
+		getFavoriteMovies: build.query<IUserData, string>({
+			query: (id: string) => ({
+				url: `register/${id}`,
+			}),
+			providesTags: userStateProvideTags,
+		}),
 	}),
 })
 
-export const { usePostFavoriteMutation, useRemoveFavoriteMoviesMutation } =
+export const { usePostFavoriteMutation, useRemoveFavoriteMoviesMutation, useGetFavoriteMoviesQuery } =
 	fetchFavoriteApi

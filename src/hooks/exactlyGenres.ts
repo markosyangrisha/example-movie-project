@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useActions } from '../hooks/actions'
 import { IGenresData } from '../server/genresTypes'
-import { useFetchGenresQuery } from '../store/slices/moviesApi/fetchGenresApi'
+import { useFetchGenresQuery } from '../store/slices/genresList/fetchGenresApi'
 
 type Result = {
 	[key: number]: string

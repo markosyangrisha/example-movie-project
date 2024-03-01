@@ -1,12 +1,14 @@
-import { useState } from 'react'
 import { IUserData } from '../server/userTypes'
-import { usePostFavoriteMutation, useRemoveFavoriteMoviesMutation} from '../store/slices/userStateApi/fetchFavoritesApi'
-import { useLazyGetUserDataRegisterByIdQuery } from '../store/slices/userStateApi/usersStateApi'
+import {
+	usePostFavoriteMutation,
+	useRemoveFavoriteMoviesMutation,
+} from '../store/slices/userStateSlice/fetchFavoritesApi'
+import { selectUserData } from '../store/slices/userStateSlice/userStateSelector';
+import { useLazyGetUserDataRegisterByIdQuery } from '../store/slices/userStateSlice/usersStateApi'
 import { useAppSelector } from './redux'
 
 export const useAddToFavorites = () => {
-	const [isAddToFavorites, setIsAddToFavorites] = useState<boolean>(false)
-	const { user } = useAppSelector(state => state.userAuth)
+	const user = useAppSelector(selectUserData)
 	const [addTooFavorites] = usePostFavoriteMutation()
 	const [removeInFavorites] = useRemoveFavoriteMoviesMutation()
 	const [getUserById] = useLazyGetUserDataRegisterByIdQuery()
@@ -22,8 +24,6 @@ export const useAddToFavorites = () => {
 			const existingFavoritesId = data?.favorites.find(
 				item => item.movieId === id
 			)
-
-			// setIsAddBookMark(existingBookmarkId?.isAddBookMark ?? false)
 
 			if (existingFavoritesId) {
 				const newFavorites = data?.favorites.filter(
@@ -56,15 +56,12 @@ export const useAddToFavorites = () => {
 			})
 
 			if ('error' in response && 'status' in response.error)
-				throw new Error(
-					'Error: an error occurred while adding to the bookmark'
-				)
+				throw new Error('Error: an error occurred while adding to the bookmark')
 		} catch (error) {
 			console.log(error)
 		}
 	}
 	return {
 		addToFavoritesList,
-		isAddToFavorites,
 	}
 }

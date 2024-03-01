@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { burgerMenuReducer } from './slices/burgerMenuSlice/burgerMenu'
 import { formReducer } from './slices/formSlice/formSlice'
-import { genresListReducer } from './slices/moviesApi/genresList'
+import { genresListReducer } from './slices/genresList/genresList'
 import { movieApi } from './slices/moviesApi/moviesStateApi'
-import { userAuthReducer } from './slices/userStateApi/userAuth'
-import { usersApi } from './slices/userStateApi/usersStateApi'
+import { userAuthReducer } from './slices/userStateSlice/userAuth'
+import { usersApi } from './slices/userStateSlice/usersStateApi'
 
 const rootRouters = combineReducers({
 	[movieApi.reducerPath]: movieApi.reducer,

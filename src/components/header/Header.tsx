@@ -7,12 +7,14 @@ import Logo from '../logo/Logo'
 import MainSearch from '../mainSearch/MainSearch'
 import UserEntry from '../userEntry/UserEntry'
 import UserProfile from '../userProfile/UserProfile'
-import './Header.css'
 import NavBar from './navBar/NavBar'
+import { selectIsUserAuth } from '../../store/slices/userStateSlice/userStateSelector';
+import './Header.css'
 
 const Header: FC = () => {
 	const { openBurgerMenuHandler } = useActions()
-	const { isUserAuth } = useAppSelector(state => state.userAuth)
+	const isUserAuth = useAppSelector(selectIsUserAuth);
+
 	return (
 		<>
 			<div className='header'>

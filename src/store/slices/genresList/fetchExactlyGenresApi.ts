@@ -1,7 +1,7 @@
 import { IMoviesServerResponse } from '../../../server/moviesTypes'
 import { URL_DISCOVER } from '../../../server/params'
 import { Authorization } from '../../../server/server'
-import { movieApi } from './moviesStateApi'
+import { movieApi } from '../moviesApi/moviesStateApi'
 
 interface IQueryParams {
 	genre: string
@@ -26,4 +26,4 @@ const fetchExactlyGenresApi = movieApi.injectEndpoints({
 	}),
 })
 
-export const {useFetchExactlyGenresQuery} = fetchExactlyGenresApi
+export const { useFetchExactlyGenresQuery } = fetchExactlyGenresApi

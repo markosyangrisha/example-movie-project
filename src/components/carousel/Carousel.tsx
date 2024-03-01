@@ -1,55 +1,27 @@
 import { FC } from 'react'
 import Slider from 'react-slick'
-import { IMoviesData } from '../../server/moviesTypes'
+import { useFetchMoviesQuery } from '../../store/slices/moviesApi/moviesStateApi'
 import CarouselItem from '../carouselItem/CarouseItem'
+import { settings } from './carouselParams'
 import './Carousel.css'
 
-const settings = {
-	infinite: true,
-	speed: 500,
-	slidesToScroll: 4,
-	slidesToShow: 4,
-	responsive: [
-		{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				infinite: true,
-				dots: true,
-			},
-		},
-		{
-			breakpoint: 600,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2,
-				initialSlide: 2,
-			},
-		},
-		{
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-			},
-		},
-	],
-}
-
 interface ICarouselProps {
-	items?: IMoviesData[]
+	url: string
 	categoryTitle: string
 }
 
-const Carousel: FC<ICarouselProps> = ({ items = [], categoryTitle }) => {
+const Carousel: FC<ICarouselProps> = ({ url, categoryTitle }) => {
+	const { data, isError, isLoading } = useFetchMoviesQuery({ url })
+
 	return (
 		<div className='carousel-movies'>
+			{isLoading && <h3>Loading</h3>}
+			{isError && <h3>Error</h3>}
 			<h3 className='carousel-movies__title'>{categoryTitle}</h3>
 			<div className='carousel-container'>
 				<div className='carousel-wrapper'>
 					<Slider {...settings}>
-						{items?.map(movie => (
+						{data?.results?.map(movie => (
 							<CarouselItem key={movie.id} {...movie} />
 						))}
 					</Slider>

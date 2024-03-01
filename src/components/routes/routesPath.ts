@@ -1,4 +1,4 @@
-import Favorites from '../../favorites/Favorites';
+import Favorites from '../../components/favorites/Favorites'
 import MovieDetails from '../../pages/movieDetails/MovieDetails'
 import NotFoundPage from '../../pages/notFoundPage/NotFoundPage'
 import SearchMoviesPage from '../../pages/searchMoviesPage/SearchMoviesPage'

@@ -3,15 +3,18 @@ import { NavLink } from 'react-router-dom'
 import { useActions } from '../../hooks/actions'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { useAppSelector } from '../../hooks/redux'
-import { useFetchGenresQuery } from '../../store/slices/moviesApi/fetchGenresApi'
+import {
+	selectIsOpenBurgerMenu,
+	selectIsOpenDropdownList,
+} from '../../store/slices/burgerMenuSlice/burgerMenuSliceSelect'
+import { useFetchGenresQuery } from '../../store/slices/genresList/fetchGenresApi'
 import { Icons } from '../../widgets/icons'
 import './BurgerMenu.css'
 
 const BurgerMenu: FC = () => {
 	const { openBurgerMenuHandler, openDropdownList } = useActions()
-	const { isOpenBurgerMenu, isOpenDropdownList } = useAppSelector(
-		state => state.burgerMenu
-	)
+	const isOpenBurgerMenu = useAppSelector(selectIsOpenBurgerMenu)
+	const isOpenDropdownList = useAppSelector(selectIsOpenDropdownList)
 	const { data } = useFetchGenresQuery()
 	const { thatGenreMovies } = useExactlyGenres()
 

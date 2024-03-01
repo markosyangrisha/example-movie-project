@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Pagination from '../../components/pagination/Pagination'
 import { BASE_IMAGE_URL } from '../../server/server'
-import { useFetchExactlyGenresQuery } from '../../store/slices/moviesApi/fetchExactlyGenresApi'
+import { useFetchExactlyGenresQuery } from '../../store/slices/genresList/fetchExactlyGenresApi'
 import { Icons } from '../../widgets/icons'
 import './ThisGenreMovies.css'
 

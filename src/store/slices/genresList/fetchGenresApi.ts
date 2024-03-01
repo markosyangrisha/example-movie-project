@@ -1,7 +1,7 @@
 import { IGenresServerResponse } from '../../../server/genresTypes'
 import { URL_GENRES } from '../../../server/params'
 import { Authorization } from '../../../server/server'
-import { movieApi } from './moviesStateApi'
+import { movieApi } from '../moviesApi/moviesStateApi'
 
 const fetchGenesApi = movieApi.injectEndpoints({
 	endpoints: build => ({

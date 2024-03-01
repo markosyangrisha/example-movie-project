@@ -20,7 +20,7 @@ const formSlice = createSlice({
 	name: 'form',
 	initialState,
 	reducers: {
-		handlerFormStat: (state, { payload }: PayloadAction<string>) => {
+		handlerFormState: (state, { payload }: PayloadAction<string>) => {
 			if (payload === 'signIn') {
 				state.signIn = true
 				state.isOpenForm = true

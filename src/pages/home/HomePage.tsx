@@ -1,8 +1,6 @@
 import { FC } from 'react'
-import TopRated from '../../components/topRated/TopRated'
-import UpcomingMovies from '../../components/upcomingMovies/UpcomingMovies'
 import BigCarousel from '../../components/bigCarousel/BigCarousel'
-import PopularMovies from '../../components/popularMovies/PopularMovies'
+import CarouselComponent from '../../components/carouselComponent/CarouselComponent'
 import './HomePage.css'
 
 const HomePage: FC = () => {
@@ -16,9 +14,7 @@ const HomePage: FC = () => {
 					</p>
 				</div>
 				<BigCarousel />
-				<UpcomingMovies />
-				<PopularMovies />
-				<TopRated />
+				<CarouselComponent />
 			</div>
 		</div>
 	)

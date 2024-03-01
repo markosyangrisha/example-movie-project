@@ -21,13 +21,11 @@ const NavBar: FC = () => {
 							Genres
 							<Icons.arrowDown className='arrow-down__icon' />
 						</span>
-						{/* Dropdown List */}
 						<GenresDropdownList />
-						{/* Dropdown List */}
 					</div>
-					<NavLink to='/bookmark'>
+					<NavLink to='/favorites'>
 						<Icons.BookMark />
-						Bookmark
+						Favorites
 					</NavLink>
 				</div>
 			</div>

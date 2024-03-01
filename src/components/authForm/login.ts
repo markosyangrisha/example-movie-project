@@ -6,7 +6,7 @@ import {
 	useGetUserDataLoginQuery,
 	useGetUserDataRegisterQuery,
 	useLoginUserMutation,
-} from '../../store/slices/userStateApi/usersStateApi'
+} from '../../store/slices/userStateSlice/usersStateApi'
 
 export const useLoginHandler = (reset: UseFormReset<IUserData>) => {
 	const loginInputRef = useRef<HTMLInputElement>(null)

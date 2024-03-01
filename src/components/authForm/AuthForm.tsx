@@ -1,14 +1,21 @@
-import { FC, useEffect } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useActions } from '../../hooks/actions'
 import { useAppSelector } from '../../hooks/redux'
 import { IUserData } from '../../server/userTypes'
 import { Icons } from '../../widgets/icons'
-import './Form.css'
+
+import { useActions } from '../../hooks/actions'
+import {
+	selectIsOpenEye,
+	selectIsOpenEyeConfirm,
+	selectSignIn,
+	selectSignUp,
+} from '../../store/slices/formSlice/formSelect'
 import { useLoginHandler } from './login'
 import { useRegistrationHandler } from './registration'
+import './AuthForm.css'
 
-const Form: FC = () => {
+const AuthForm: FC = () => {
 	const {
 		register,
 		handleSubmit,
@@ -17,41 +24,58 @@ const Form: FC = () => {
 		setFocus,
 	} = useForm<IUserData>()
 
-	const { handlerFormStat, closeOpenForm, passwordEye, confirmPasswordEye } =
-		useActions()
-	const { signIn, signUp, isOpenEye, isOpenEyeConfirm } = useAppSelector(
-		state => state.formAuth
-	)
+	const { handlerFormState, passwordEye, confirmPasswordEye } = useActions()
+	const signIn = useAppSelector(selectSignIn)
+	const signUp = useAppSelector(selectSignUp)
+	const isOpenEyeConfirm = useAppSelector(selectIsOpenEyeConfirm)
+	const isOpenEye = useAppSelector(selectIsOpenEye)
+	const { closeOpenForm } = useActions()
 	const { registration } = useRegistrationHandler(reset)
 	const { login } = useLoginHandler(reset)
+
+	const handlerCloseOpenForm = useCallback(
+		() => closeOpenForm(false),
+		[closeOpenForm]
+	)
+
+	const handlerFormStatSignIn = useCallback(
+		() => handlerFormState('signIn'),
+		[handlerFormState]
+	)
+	const handlerFormStatSignUp = useCallback(
+		() => handlerFormState('signUp'),
+		[handlerFormState]
+	)
+	const handlerPasswordEye = useCallback(() => passwordEye(), [passwordEye])
+
+	const handlerConfirmPasswordEye = useCallback(
+		() => confirmPasswordEye(),
+		[confirmPasswordEye]
+	)
 
 	useEffect(() => {
 		setFocus(signUp ? 'username' : signIn ? 'email' : 'username')
 	}, [setFocus, signUp, signIn])
 
+	const handleFormSubmit = signUp ? registration : login
+
 	return (
 		<div className='form-modal__window'>
 			<div className='form-modal__inner'>
-				<Icons.Close
-					onClick={() => closeOpenForm(false)}
-					id='form-close__icon'
-				/>
+				<Icons.Close onClick={handlerCloseOpenForm} id='form-close__icon' />
 				<button
-					onClick={() => handlerFormStat('signIn')}
+					onClick={handlerFormStatSignIn}
 					className={`form-sign_in-btn ${signIn && 'active-form'}`}
 				>
 					Sign In
 				</button>
 				<button
-					onClick={() => handlerFormStat('signUp')}
+					onClick={handlerFormStatSignUp}
 					className={`form-sign_up-btn ${signUp && 'active-form'}`}
 				>
 					Sign Up
 				</button>
-				<form
-					onSubmit={signUp ? handleSubmit(registration) : handleSubmit(login)}
-					className='form'
-				>
+				<form onSubmit={handleSubmit(handleFormSubmit)} className='form'>
 					{signUp && (
 						<>
 							<div className='form-inner form-username'>
@@ -84,10 +108,10 @@ const Form: FC = () => {
 						/>
 						<Icons.Lock id='form-lock__icon' />
 						{isOpenEye ? (
-							<Icons.Eye onClick={() => passwordEye()} id='form-eye__icon' />
+							<Icons.Eye onClick={handlerPasswordEye} id='form-eye__icon' />
 						) : (
 							<Icons.EyeOff
-								onClick={() => passwordEye()}
+								onClick={handlerPasswordEye}
 								id='form-eye__off-icon'
 							/>
 						)}
@@ -107,12 +131,12 @@ const Form: FC = () => {
 							<Icons.Lock id='form-lock__icon' />
 							{isOpenEyeConfirm ? (
 								<Icons.Eye
-									onClick={() => confirmPasswordEye()}
+									onClick={handlerConfirmPasswordEye}
 									id='form-eye__icon'
 								/>
 							) : (
 								<Icons.EyeOff
-									onClick={() => confirmPasswordEye()}
+									onClick={handlerConfirmPasswordEye}
 									id='form-eye__off-icon'
 								/>
 							)}
@@ -128,4 +152,4 @@ const Form: FC = () => {
 	)
 }
 
-export default Form
+export default AuthForm
