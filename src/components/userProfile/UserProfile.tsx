@@ -1,17 +1,11 @@
-import { FC } from 'react'
-import './UserProfile.css'
-import { useActions } from '../../hooks/actions';
+import { FC } from 'react';
+import './UserProfile.css';
+import UserProfileSettings from '../userProfileSettings/UserProfileSettings';
 
 const UserProfile: FC = () => {
-	const {logoutUser} = useActions()
+	return <div className='user-profile'>
+		<UserProfileSettings/>
+	</div>;
+};
 
-	return (
-		<div>
-			<button style={{ color: 'blue' }} onClick={() => logoutUser()}>
-				logout
-			</button>
-		</div>
-	)
-}
-
-export default UserProfile
+export default UserProfile;
