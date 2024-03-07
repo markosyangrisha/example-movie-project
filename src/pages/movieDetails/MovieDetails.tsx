@@ -2,9 +2,9 @@ import { FC } from 'react'
 import { useParams } from 'react-router-dom'
 import { useExactlyGenres } from '../../hooks/exactlyGenres'
 import { BASE_IMAGE_URL } from '../../server/server'
+import { useFetchMovieDetailsQuery } from '../../store/slices/moviesApi/fetchMovieDetailsApi'
 import { Icons } from '../../widgets/icons'
 import './MovieDetails.css'
-import { useFetchMovieDetailsQuery } from '../../store/slices/moviesApi/fetchMovieDetailsApi'
 
 const MovieDetails: FC = () => {
 	const { id } = useParams<'id'>()
@@ -22,11 +22,9 @@ const MovieDetails: FC = () => {
 							src={`${BASE_IMAGE_URL}${data?.poster_path}`}
 							alt={data?.title}
 						/>
-						<Icons.BookMark />
+						<Icons.Favorites />
 					</div>
-					{/* movie-details__card-img */}
 
-					{/*  movie-details__card-info */}
 					<ul className='movie-details__card-info'>
 						<li>
 							<span>Rating:</span> <span>{data?.title}</span>
@@ -92,7 +90,6 @@ const MovieDetails: FC = () => {
 							)}
 						</li>
 					</ul>
-					{/*  movie-details__card-info */}
 				</div>
 				<div className='movie-details_card-overview'>
 					<h3>What is the movie {data?.title} about?</h3>

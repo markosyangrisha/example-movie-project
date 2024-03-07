@@ -1,9 +1,8 @@
 import { FC } from 'react'
-import Slider from 'react-slick'
 import { useFetchMoviesQuery } from '../../store/slices/moviesApi/moviesStateApi'
-import CarouselItem from '../carouselItem/CarouseItem'
-import { settings } from './carouselParams'
 import './Carousel.css'
+
+import CarouselList from '../carouselList/CarouselList'
 
 interface ICarouselProps {
 	url: string
@@ -11,7 +10,7 @@ interface ICarouselProps {
 }
 
 const Carousel: FC<ICarouselProps> = ({ url, categoryTitle }) => {
-	const { data, isError, isLoading } = useFetchMoviesQuery({ url })
+	const { data: movies, isError, isLoading } = useFetchMoviesQuery({ url })
 
 	return (
 		<div className='carousel-movies'>
@@ -20,11 +19,7 @@ const Carousel: FC<ICarouselProps> = ({ url, categoryTitle }) => {
 			<h3 className='carousel-movies__title'>{categoryTitle}</h3>
 			<div className='carousel-container'>
 				<div className='carousel-wrapper'>
-					<Slider {...settings}>
-						{data?.results?.map(movie => (
-							<CarouselItem key={movie.id} {...movie} />
-						))}
-					</Slider>
+					<CarouselList movieList={movies?.results ?? []} />
 				</div>
 			</div>
 		</div>

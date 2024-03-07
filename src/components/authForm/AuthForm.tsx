@@ -59,6 +59,8 @@ const AuthForm: FC = () => {
 
 	const handleFormSubmit = signUp ? registration : login
 
+	// console.log('Render Auth Form ')
+
 	return (
 		<div className='form-modal__window'>
 			<div className='form-modal__inner'>

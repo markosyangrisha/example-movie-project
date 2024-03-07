@@ -26,14 +26,14 @@ export const useLoginHandler = (reset: UseFormReset<IUserData>) => {
 			return
 		}
 
-		const isLogin = loginData?.find(
+		const isLoginIn = loginData?.find(
 			user =>
 				user.email === formData.email && user.password === formData.password
 		)
 
-		if (isLogin) {
-			authUser({ ...formData, id: isRegister.id })
-			return
+		if (isLoginIn) {
+			authUser({ ...formData, id: isRegister.id });
+			return;
 		}
 		try {
 			const response = await loginUser(formData)

@@ -1,29 +1,20 @@
-import { FC } from 'react'
-
-import { IUserFavoriteMovieId } from '../../server/userTypes'
-import {
-	useFindMovieQuery,
-	useGetExternalMovieByIdQuery,
-} from '../../store/slices/moviesApi/fetchExternalId'
-import './FavoritesMovieList.css'
+import { FC } from 'react';
+import { IMoviesData } from '../../server/moviesTypes';
 import FavoritesMovieItem from '../favoritesMovieItem/FavoritesMovieItem';
+import './FavoritesMovieList.css';
 
+interface IFavoritesMovieListProps {
+	favoritesMoviesList: IMoviesData[];
+}
 
-const FavoritesMovieList: FC<IUserFavoriteMovieId> = ({ movieId }) => {
-	const { data: externalMovieId } = useGetExternalMovieByIdQuery(movieId)
-	const isExternalMovieId = externalMovieId ? externalMovieId.imdb_id : ''
-
-	const { data: foundMovie } = useFindMovieQuery(isExternalMovieId, {
-		skip: !isExternalMovieId,
-	})
-
+const FavoritesMovieList: FC<IFavoritesMovieListProps> = ({ favoritesMoviesList = [] }) => {
 	return (
-		<div className='favorite-item'>
-			{foundMovie?.movie_results?.map(movie => (
-				<FavoritesMovieItem key={movie.id} {...movie}/>
+		<div className='favorites-movie__block'>
+			{favoritesMoviesList?.map(movie => (
+				<FavoritesMovieItem key={movie.id} {...movie} />
 			))}
 		</div>
-	)
-}
+	);
+};
 
 export default FavoritesMovieList;

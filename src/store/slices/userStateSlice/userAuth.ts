@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IUserData } from '../../../server/userTypes'
 
-type IUserParams = Omit<IUserData, 'username' | 'confirmPassword' | 'bookmark'>
+type IUserParams = Omit<IUserData, 'username' | 'confirmPassword' | 'favorites'>
 
 interface IUserAuth {
 	isUserAuth: boolean

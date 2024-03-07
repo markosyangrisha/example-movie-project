@@ -1,18 +1,18 @@
-.favorite-movie__card {
+.genre-movie__card {
 	width: calc(20% - 16px);
 	height: 350px;
 	position: relative;
 	cursor: pointer;
 }
 
-.favorite-movie__card-img {
+.genre-movie__card-img {
 	width: 100%;
 	height: 100%;
 	border-radius: 0.4em;
 	opacity: 0.5;
 }
 
-.favorite-movie__card-info {
+.genre-movie__card-info {
 	position: absolute;
 	bottom: 5px;
 	left: 5px;
@@ -21,11 +21,11 @@
 	gap: 5px;
 }
 
-.favorite-card-info__date {
+.card-info__date {
 	color: rgb(161, 56, 21);
 }
 
-.favorite-movie__card-average {
+.movie__card-average {
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
@@ -36,7 +36,7 @@
 	font-size: 0.8em;
 }
 
-.favorite-movie__card-favorite {
+.movie__card-favorite {
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -46,6 +46,6 @@
 	cursor: pointer;
 }
 
-.favorite-movie__card-favorite:hover {
+.movie__card-favorite:hover {
 	color: red;
 }

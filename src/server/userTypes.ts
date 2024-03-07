@@ -1,13 +1,11 @@
-export interface IUserData {
-	id: string
-	username: string
-	email: string
-	password: string
-	confirmPassword: string
-	favorites: IUserFavoriteMovieId[]
-}
+import { IMoviesData } from './moviesTypes';
 
-export interface IUserFavoriteMovieId {
-	movieId: number
-	isAddToFavorites: boolean
+export interface IUserData {
+	id: string;
+	username: string;
+	email: string;
+	password: string;
+	confirmPassword: string;
+	favorites: IMoviesData[];
 }
+// export interface IUserFavoriteMovieId extends IMoviesData {}

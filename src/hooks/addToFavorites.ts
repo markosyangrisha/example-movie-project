@@ -1,67 +1,60 @@
-import { IUserData } from '../server/userTypes'
-import {
-	usePostFavoriteMutation,
-	useRemoveFavoriteMoviesMutation,
-} from '../store/slices/userStateSlice/fetchFavoritesApi'
+import { IMoviesData } from '../server/moviesTypes';
+import { IUserData } from '../server/userTypes';
+import { usePostFavoriteMutation, useRemoveFavoriteMoviesMutation } from '../store/slices/userStateSlice/fetchFavoritesApi';
 import { selectUserData } from '../store/slices/userStateSlice/userStateSelector';
-import { useLazyGetUserDataRegisterByIdQuery } from '../store/slices/userStateSlice/usersStateApi'
-import { useAppSelector } from './redux'
+import { useLazyGetUserDataRegisterByIdQuery } from '../store/slices/userStateSlice/usersStateApi';
+import { useAppSelector } from './redux';
 
 export const useAddToFavorites = () => {
-	const user = useAppSelector(selectUserData)
-	const [addTooFavorites] = usePostFavoriteMutation()
-	const [removeInFavorites] = useRemoveFavoriteMoviesMutation()
-	const [getUserById] = useLazyGetUserDataRegisterByIdQuery()
+	const user = useAppSelector(selectUserData);
+	const [addTooFavorites] = usePostFavoriteMutation();
+	const [removeInFavorites] = useRemoveFavoriteMoviesMutation();
+	const [getUserById] = useLazyGetUserDataRegisterByIdQuery();
 
-	const addToFavoritesList = async (id: number) => {
-		if (user === null) return
+	const addToFavoritesList = async (findMovie: IMoviesData) => {
+		if (!user) return;
 
 		try {
-			const { isSuccess, data } = await getUserById(user.id)
+			const { data: userData, isError: errorUserId } = await getUserById(user?.id);
 
-			if (!isSuccess) throw new Error('No user with this ID found')
-
-			const existingFavoritesId = data?.favorites.find(
-				item => item.movieId === id
-			)
+			if (errorUserId) throw new Error('No user with this ID found');
+			
+			const existingFavoritesId = userData?.favorites?.find(favoriteMovie => favoriteMovie?.id === findMovie?.id);
 
 			if (existingFavoritesId) {
-				const newFavorites = data?.favorites.filter(
-					movie => movie.movieId !== id
-				)
+				const newFavorites = userData?.favorites?.filter(favoriteMovie => favoriteMovie?.id !== findMovie?.id);
 
-				const removeFavorites: IUserData = { ...data, favorites: newFavorites }
+				const removeFavorites: IUserData = {
+					...userData,
+					favorites: newFavorites,
+				};
 
 				const response = await removeInFavorites({
 					id: user.id,
 					body: removeFavorites,
-				})
+				});
 
-				if ('error' in response && 'status' in response.error)
-					throw new Error('Error: an error occurred when deleting a bookmark')
+				if ('error' in response) throw new Error('Error: an error occurred when deleting a favorites');
 
-				return
+				return;
 			}
 
 			const newFavorites: IUserData = {
-				...data,
-				favorites: [
-					...(data?.favorites ?? []),
-					{ movieId: id, isAddToFavorites: true },
-				],
-			}
+				...userData,
+				favorites: [...(userData?.favorites ?? []), findMovie],
+			};
+
 			const response = await addTooFavorites({
 				id: user.id,
 				body: newFavorites,
-			})
+			});
 
-			if ('error' in response && 'status' in response.error)
-				throw new Error('Error: an error occurred while adding to the bookmark')
+			if ('error' in response) throw new Error('Error: an error occurred while adding to the favorites');
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
-	}
+	};
 	return {
 		addToFavoritesList,
-	}
-}
+	};
+};

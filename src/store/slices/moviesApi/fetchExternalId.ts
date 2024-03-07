@@ -33,4 +33,8 @@ const externalId = movieApi.injectEndpoints({
 	}),
 })
 
-export const { useGetExternalMovieByIdQuery, useFindMovieQuery } = externalId
+export const {
+	useLazyGetExternalMovieByIdQuery,
+	useGetExternalMovieByIdQuery,
+	useLazyFindMovieQuery,
+} = externalId

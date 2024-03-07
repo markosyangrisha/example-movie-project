@@ -35,7 +35,7 @@ const SearchMoviesPage: FC = () => {
 							</span>
 							<span className='search-movie__card-title'>{movie.title}</span>
 						</div>
-						<Icons.BookMark className='search-movie__card-favorite' />
+						<Icons.Favorites className='search-movie__card-favorite' />
 						<span className='search-movie__card-average'>
 							{movie.vote_average}
 						</span>

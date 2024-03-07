@@ -4,6 +4,7 @@ import CarouselComponent from '../../components/carouselComponent/CarouselCompon
 import './HomePage.css'
 
 const HomePage: FC = () => {
+
 	return (
 		<div className='home-page'>
 			<div className='home-page_main'>

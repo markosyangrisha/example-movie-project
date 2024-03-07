@@ -1,6 +1,6 @@
 import { AiOutlineMenu as Burger } from 'react-icons/ai'
 import {
-	FaBookmark as BookMark,
+	FaBookmark as Favorites,
 	FaGithub as GitHub,
 	FaLinkedin as Linkedin,
 	FaUser as User,
@@ -40,6 +40,6 @@ export const Icons = {
 	arrowDown,
 	GitHub,
 	Linkedin,
-	BookMark,
+	Favorites,
 	User,
 }
